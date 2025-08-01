@@ -1,3 +1,4 @@
 # Ruby
 .bundle/config
 vendor/bundle/
+_site/
