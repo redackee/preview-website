@@ -5,7 +5,8 @@
 ### the initial set up you won't need to come back to this file often.
 ###########################################################
 
-remote_theme: "redackee/beautiful-jekyll"
+theme: beautiful-jekyll-theme
+# remote_theme: "redackee/beautiful-jekyll"
 
 ############################
 # --- Required options --- #
