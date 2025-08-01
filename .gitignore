@@ -2,3 +2,6 @@
 .bundle/config
 vendor/bundle/
 _site/
+
+# macOS
+.DS_Store
