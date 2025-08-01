@@ -295,6 +295,7 @@ exclude:
   - screenshot.png
   - docs/
   - vendor/
+  - SETUP_SUMMARY.md
 
 plugins:
   - jekyll-paginate
