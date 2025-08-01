@@ -5,5 +5,4 @@ source 'https://rubygems.org'
 
 gem 'github-pages', group: :jekyll_plugins
 
-#already-installed-as-another-version# 
-gem "jekyll-remote-theme", "~> 0.4.3"
+#already-installed-as-another-version# gem "jekyll-remote-theme", "~> 0.4.3"
