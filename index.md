@@ -4,11 +4,8 @@ title: "Red Ackee Software"
 cover-img: "/assets/img/old_sugar_factory.jpg"
 ---
 
-Welcome to Red Ackee Software!
+Welcome!
 
-This is the home page for your GitHub Pages site, powered by Jekyll.
+_This site is under construction._ Soon to be the home of amazing AI integrated software.
 
-- Use the navigation bar to explore the site.
-- Edit this page by modifying `index.md` or `index.html` in your repository.
-
-Enjoy building your site!
+Focused on AI as local first for ultimate control and privacy, while achieving business objectives previously only available on multi-million dollar enterprise budgets.
