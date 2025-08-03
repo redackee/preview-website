@@ -21,6 +21,20 @@
   font-weight: bold;
   font-family: 'Montserrat', 'Arial', sans-serif;
 }
+.navbar-brand .red-word {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.navbar-brand .ackee-word {
+  color: #111;
+  font-weight: bold;
+}
+.navbar-brand .software-word {
+  color: #FFD700;
+  font-weight: bold;
+  -webkit-text-stroke: 1px #111;
+  text-stroke: 1px #111; /* For future compatibility */
+}
 
 /* Main page title (h1) */
 h1, .page-title {
