@@ -26,6 +26,9 @@ navbar-links:
   About Me: "https://www.linkedin.com/in/nkosidilworth/"
   Resources:
     - Learn markdown: "https://www.markdowntutorial.com/"
+    - ChatGPT: "https://chat.openai.com/"
+    - Google Gemini: "https://gemini.google.com/"
+    - Microsoft Copilot: "https://copilot.microsoft.com/"
 #  Author's home: "https://nkosi-dilworth.com"
 
 ################
