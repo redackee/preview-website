@@ -1,0 +1,20 @@
+/* Custom styles for Red Ackee Software branding */
+
+/* Navbar site title */
+.navbar-brand {
+  color: #d32f2f !important; /* Red shade */
+  font-weight: bold;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+/* Main page title (h1) */
+h1, .page-title {
+  color: #d32f2f;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+/* Footer site title, if present */
+.footer .site-title {
+  color: #d32f2f;
+  font-weight: bold;
+}
