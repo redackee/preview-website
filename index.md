@@ -1,6 +1,7 @@
 ---
 layout: home
 title: "Red Ackee Software"
+cover-img: "/assets/img/old_sugar_factory.jpg"
 ---
 
 Welcome to Red Ackee Software!
