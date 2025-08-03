@@ -10,10 +10,9 @@
 }
 .site-title .software-word {
   color: #FFD700;
-  border: 1px solid #111;
-  border-radius: 3px;
-  padding: 0 4px;
   font-weight: bold;
+  -webkit-text-stroke: 1px #111;
+  text-stroke: 1px #111; /* For future compatibility */
 }
 
 /* Navbar site title */
@@ -33,4 +32,9 @@ h1, .page-title {
 .footer .site-title {
   color: #d32f2f;
   font-weight: bold;
+}
+
+/* Hide default page title if custom one is present */
+.page-title + .page-title, h1 + .page-title, h1.page-title + h1.page-title {
+  display: none;
 }
