@@ -6,7 +6,7 @@ cover-img: "/assets/img/old_sugar_factory.jpg"
 
 Welcome!
 
-_This site is under construction._ Soon to be the home of smartly connected AI integrated software.
+_This site is under construction._ Soon to be the home of mobile AI integrated software that travels with you.
 
 Focused on local-first AI for ultimate control and privacy. We aim to deliver business solutions that were once only available to enterprises with multi-million dollar budgets.
 
