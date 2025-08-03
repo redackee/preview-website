@@ -1,5 +1,21 @@
 /* Custom styles for Red Ackee Software branding */
 
+.site-title .red-word {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.site-title .ackee-word {
+  color: #111;
+  font-weight: bold;
+}
+.site-title .software-word {
+  color: #FFD700;
+  border: 1px solid #111;
+  border-radius: 3px;
+  padding: 0 4px;
+  font-weight: bold;
+}
+
 /* Navbar site title */
 .navbar-brand {
   color: #d32f2f !important; /* Red shade */
