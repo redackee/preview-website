@@ -257,7 +257,7 @@ date_format: "%B %-d, %Y"
 #fb_app_id: ""
 
 # Favicon image path
-favicon: "/assets/img/favicon.png"
+favicon: "/assets/img/favicon.ico"
 
 #################################################################################
 # --- You don't need to touch anything below here (but you can if you want) --- #
