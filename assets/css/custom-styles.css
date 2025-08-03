@@ -28,6 +28,30 @@ h1, .page-title {
   text-shadow: 1px 1px 2px #fff;
 }
 
+/* Make .page-heading look like .page-title */
+.page-heading {
+  color: #d32f2f;
+  text-shadow: 1px 1px 2px #fff;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.page-heading .red-word {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.page-heading .ackee-word {
+  color: #111;
+  font-weight: bold;
+}
+.page-heading .software-word {
+  color: #FFD700;
+  font-weight: bold;
+  -webkit-text-stroke: 1px #111;
+  text-stroke: 1px #111; /* For future compatibility */
+}
+
 /* Footer site title, if present */
 .footer .site-title {
   color: #d32f2f;
