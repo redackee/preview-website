@@ -1,7 +1,7 @@
 ---
 layout: home
 title: "Red Ackee Software"
-cover-img: "/assets/img/old_sugar_factory.jpg"
+cover-img: "/assets/img/banner-redackee-1536x1024.png"
 ---
 
 <!-- <h1 class="page-title site-title" style="margin-top:0;">
