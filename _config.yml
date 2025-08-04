@@ -302,6 +302,7 @@ exclude:
   - docs/
   - vendor/
   - SETUP_SUMMARY.md
+  - FUTURE.md
 
 plugins:
   - jekyll-paginate
