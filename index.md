@@ -4,11 +4,11 @@ title: "Red Ackee Software"
 cover-img: "/assets/img/old_sugar_factory.jpg"
 ---
 
-<h1 class="page-title site-title" style="margin-top:0;">
+<!-- <h1 class="page-title site-title" style="margin-top:0;">
   <span class="red-word">Red</span>
   <span class="ackee-word">Ackee</span>
   <span class="software-word">Software</span>
-</h1>
+</h1> -->
 
 Welcome!
 
