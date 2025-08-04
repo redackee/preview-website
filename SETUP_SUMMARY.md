@@ -45,4 +45,39 @@
 
 ---
 
+## Major Customizations and UI Changes (since last update)
+
+- **Site Title Branding:**
+
+  - Multi-color "Red Ackee Software" branding applied everywhere the site title appears (navbar, header, page title, and optionally footer).
+  - Custom CSS for `.red-word` (red), `.ackee-word` (black), and `.software-word` (gold with black text stroke).
+  - Overrode theme includes and layouts to inject custom HTML for the site title.
+
+- **Banner Image:**
+
+  - Homepage banner image updated from `old_sugar_factory.jpg` to `banner-redackee-1536x1024.png`.
+
+- **Navigation:**
+
+  - Added links to ChatGPT, Google Gemini, and Microsoft Copilot under the Resources menu in the navbar.
+
+- **Favicon:**
+
+  - Switched favicon from PNG to ICO format in `_config.yml`.
+
+- **Header and Page Title:**
+
+  - Removed text shadow from all major headings for a cleaner look.
+  - Ensured only the custom multi-color title is shown in the banner/header area.
+  - CSS rules added to hide default page headings if a custom title is present.
+
+- **Footer:**
+
+  - Footer reverted to show only copyright and author.
+
+- **General:**
+  - Various troubleshooting and improvements for local development, LiveReload, and browser cache issues.
+
+---
+
 For further troubleshooting, ensure you are using a user-managed Ruby and have the necessary build tools installed. All configuration and setup steps are now documented in this summary.
