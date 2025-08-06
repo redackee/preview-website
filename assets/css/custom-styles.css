@@ -94,8 +94,13 @@ h1, .page-title {
 }
 .intro-header {
   position: relative;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 .intro-header .container-md, .intro-header .row, .intro-header .col-xl-8, .intro-header .col-lg-10 {
   position: relative;
   z-index: 2;
+}
+body {
+  padding-top: 0 !important;
 }
