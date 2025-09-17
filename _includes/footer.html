@@ -13,6 +13,10 @@
       <p class="copyright text-muted">
       {% if site.author %}
         {{ site.author }}
+            <!-- Voice Feedback Microphone Avatar -->
+            <div id="voice-feedback-avatar" class="voice-feedback-avatar" title="Send voice feedback">
+              <img src="/assets/img/avatar-redackee-200x200.png" alt="Microphone Avatar" id="mic-avatar-img">
+            </div>
         &nbsp;&bull;&nbsp;
       {% endif %}
       {{ site.time | date: '%Y' }}
@@ -38,6 +42,7 @@
 
       </p>
       {% unless site.remove-ads %}<p class="theme-by text-muted">
+    <script src="/assets/js/voice-feedback.js"></script>
         Powered by
         <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
       </p>{% endunless %}
