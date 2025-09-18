@@ -1,23 +1,23 @@
 // Voice Feedback Gimmick JS
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Vosk WASM integration scaffolding
-  let voskReady = false;
-  let voskRecognizer = null;
+  // Vosklet WASM integration scaffolding
+  let voskletReady = false;
+  let voskletRecognizer = null;
 
-  // Load Vosk WASM model (instructions: place model files in assets/wasm/)
-  async function loadVosk() {
-    if (window.Vosk) {
+  // Load Vosklet model (instructions: place Vosklet assets in assets/wasm/)
+  async function loadVosklet() {
+    if (window.Vosklet) {
       const modelPath = '/assets/wasm/vosk-model-small-en-us-0.15';
-      voskRecognizer = new window.Vosk.Recognizer({modelPath});
-      await voskRecognizer.init();
-      voskReady = true;
+      voskletRecognizer = new window.Vosklet.Recognizer({modelPath});
+      await voskletRecognizer.init();
+      voskletReady = true;
     } else {
-      console.warn('Vosk WASM not loaded. Please include Vosk WASM JS and model files.');
+      console.warn('Vosklet WASM not loaded. Please include Vosklet JS and model files.');
     }
   }
-  // Attempt to load Vosk on page load
-  loadVosk();
+  // Attempt to load Vosklet on page load
+  loadVosklet();
   const avatar = document.getElementById('voice-feedback-avatar');
   const micImg = document.getElementById('mic-avatar-img');
   let recording = false;
@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         mediaRecorder.onstop = () => {
           const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-          if (voskReady && voskRecognizer) {
-            transcribeAudio(audioBlob);
+          if (voskletReady && voskletRecognizer) {
+            transcribeAudioVosklet(audioBlob);
           } else {
             showFeedbackModal('Your voice note has been recorded. Transcription coming soon.');
           }
@@ -125,11 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
     feedbackModal.querySelector('#transcribed-text').textContent = text;
   }
 
-  // Transcribe audio using Vosk WASM
-  async function transcribeAudio(audioBlob) {
+  // Transcribe audio using Vosklet
+  async function transcribeAudioVosklet(audioBlob) {
     try {
       const arrayBuffer = await audioBlob.arrayBuffer();
-      const result = await voskRecognizer.recognize(arrayBuffer);
+      const result = await voskletRecognizer.recognize(arrayBuffer);
       showFeedbackModal(result.text ? `Transcribed: ${result.text}` : 'No speech detected.');
     } catch (err) {
       showFeedbackModal('Transcription failed.');
