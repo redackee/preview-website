@@ -368,6 +368,15 @@
 
       </p>
       <p class="theme-by text-muted">
+    <script src="/preview-website/assets/wasm/Vosklet.js"></script>
+    <script>
+      // Initialize Vosklet and expose it as window.Vosklet for the feedback script.
+      if (typeof loadVosklet === 'function') {
+        loadVosklet().then(m => { window.Vosklet = m; }).catch(e => { console.error('Failed to initialize Vosklet:', e); });
+      } else {
+        console.warn('Vosklet loader not found on the page.');
+      }
+    </script>
     <script src="/preview-website/assets/js/voice-feedback.js"></script>
         Powered by
         <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
