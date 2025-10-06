@@ -18,7 +18,7 @@
   <meta name="author" content="Nkosi Dilworth">
   
 
-  <meta name="description" content="Welcome! _This site is under construction._ Soon, it will be the home of mobile AI software that goes wherever you do, always meeting your goals. Focused on on-device AI for ultimate control and privacy, we aim to deliver business solutions that were once only available to enterprises with multi-million dollar...">
+  <meta name="description" content="Browser-friendly Vosklet build (recommended) This repository includes a small mock `Vosklet.browser.js` for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports. Where to get a browser build 1. Official sources - Check the Vosk project releases: https://github.com/alphacep/vosk-browser or...">
 
   
 
@@ -86,29 +86,29 @@
   
   <meta property="og:site_name" content="Red Ackee Software">
   <meta property="og:title" content="Red Ackee Software">
-  <meta property="og:description" content="Welcome! _This site is under construction._ Soon, it will be the home of mobile AI software that goes wherever you do, always meeting your goals. Focused on on-device AI for ultimate control and privacy, we aim to deliver business solutions that were once only available to enterprises with multi-million dollar...">
+  <meta property="og:description" content="Browser-friendly Vosklet build (recommended) This repository includes a small mock `Vosklet.browser.js` for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports. Where to get a browser build 1. Official sources - Check the Vosk project releases: https://github.com/alphacep/vosk-browser or...">
 
   
-  <meta property="og:image" content="/preview-website/assets/img/banner-redackee-1536x1024.png">
+  <meta property="og:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
   
 
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/preview-website/">
-  <link rel="canonical" href="/preview-website/">
+  <meta property="og:url" content="/preview-website/assets/wasm/README-browser/">
+  <link rel="canonical" href="/preview-website/assets/wasm/README-browser/">
   
 
   
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
   
   <meta name="twitter:site" content="@redackee">
   <meta name="twitter:creator" content="@redackee">
 
   <meta property="twitter:title" content="Red Ackee Software">
-  <meta property="twitter:description" content="Welcome! _This site is under construction._ Soon, it will be the home of mobile AI software that goes wherever you do, always meeting your goals. Focused on on-device AI for ultimate control and privacy, we aim to deliver business solutions that were once only available to enterprises with multi-million dollar...">
+  <meta property="twitter:description" content="Browser-friendly Vosklet build (recommended) This repository includes a small mock `Vosklet.browser.js` for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports. Where to get a browser build 1. Official sources - Check the Vosk project releases: https://github.com/alphacep/vosk-browser or...">
 
   
-  <meta name="twitter:image" content="/preview-website/assets/img/banner-redackee-1536x1024.png">
+  <meta name="twitter:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
   
 
   
@@ -169,17 +169,6 @@
 
   
 
-
-  <div id="header-big-imgs" data-num-img=1
-    
-    
-    
-    
-      data-img-src-1="/preview-website/assets/img/banner-redackee-1536x1024.png"
-    
-    
-    
-  ></div>
 
 
 <header class="navbar navbar-default navbar-fixed-top">
@@ -242,29 +231,9 @@
   </div>
 </header>
 
-<div class="intro-header  big-img ">
+<div class="intro-header ">
   
-  <div class="header-overlay"></div>
-  <div class="container-md">
-    <div class="row">
-      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="page-heading">
-          <h1>
-            <span class="site-title">
-              <span class="red-word">Red</span>
-              <span class="ackee-word">Ackee</span>
-              <span class="software-word">Software</span>
-            </span>
-          </h1>
-          
-          
-          
-        </div>
-      </div>
-    </div>
-  </div>
   
-  <span class='img-desc'></span>
 </div>
 
 
@@ -275,23 +244,48 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <p>Welcome!</p>
+      <p>Browser-friendly Vosklet build (recommended)</p>
 
-<p><em>This site is under construction.</em> Soon, it will be the home of mobile AI software that goes wherever you do, always meeting your goals.</p>
+<p>This repository includes a small mock <code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code> for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports.</p>
 
-<p>Focused on on-device AI for ultimate control and privacy, we aim to deliver business solutions that were once only available to enterprises with multi-million dollar budgets.</p>
+<p>Where to get a browser build</p>
 
-<p>Check back soon!</p>
+<ol>
+  <li>
+    <p>Official sources</p>
 
+    <ul>
+      <li>Check the Vosk project releases: https://github.com/alphacep/vosk-browser or https://alphacephei.com/vosk</li>
+      <li>Look for a build named similar to <code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code> + <code class="language-plaintext highlighter-rouge">Vosklet.wasm</code> or instructions for “WebAssembly (browser)” builds.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Build it yourself with Emscripten</p>
 
+    <ul>
+      <li>Clone the Vosklet sources and compile with emscripten using emcc and flags to target the browser (disable WASI, do not require imported memory, etc.).</li>
+      <li>Example (high-level):
+        <ul>
+          <li>emcc -O3 -s MODULARIZE=1 -s ‘EXPORT_NAME=”loadVosklet”’ -s NO_EXIT_RUNTIME=1 -s ALLOW_MEMORY_GROWTH=1 -o Vosklet.browser.js <sources></sources></li>
+          <li>Ensure the generated JS exposes a function <code class="language-plaintext highlighter-rouge">loadVosklet</code> that returns a Promise resolving with the module.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Place files</p>
+    <ul>
+      <li>Put the final <code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code> and <code class="language-plaintext highlighter-rouge">Vosklet.wasm</code> under <code class="language-plaintext highlighter-rouge">assets/wasm/</code> in this site.</li>
+    </ul>
+  </li>
+</ol>
 
+<p>Notes</p>
 
-<!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-<ul class="posts-list list-unstyled" role="list">
-  
+<ul>
+  <li>The mock provided here (<code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code>) is only for functional UI testing; it does not perform real speech recognition.</li>
+  <li>If you want, I can try to locate a prebuilt browser bundle or help build one from sources using emscripten in a separate environment.</li>
 </ul>
-
-
 
 
       
