@@ -10,6 +10,22 @@
 }, 
  
 { 
+"title"    : "Local vosk-browser Setup - Summary", 
+"desc"     : "Local vosk-browser Setup - Summary", 
+"category" : "page", 
+"url"      : "/preview-website/LOCAL_VOSK_SETUP/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
+"title"    : "Vosk-Browser Migration Summary", 
+"desc"     : "Vosk-Browser Migration Summary", 
+"category" : "page", 
+"url"      : "/preview-website/VOSK_BROWSER_MIGRATION/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
 "title"    : "", 
 "desc"     : "", 
 "category" : "page", 

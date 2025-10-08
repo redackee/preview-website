@@ -4,6 +4,12 @@
 <loc>/preview-website/</loc>
 </url>
 <url>
+<loc>/preview-website/LOCAL_VOSK_SETUP/</loc>
+</url>
+<url>
+<loc>/preview-website/VOSK_BROWSER_MIGRATION/</loc>
+</url>
+<url>
 <loc>/preview-website/assets/wasm/README-browser/</loc>
 </url>
 </urlset>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  
+
+  <title>Vosk-Browser Migration Summary | Red Ackee Software</title>
+
+  
+  
+  <meta name="author" content="Nkosi Dilworth">
+  
+
+  <meta name="description" content="# Vosk-Browser Migration Summary ## Overview Successfully migrated from Vosklet to **vosk-browser** (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature. ## Changes Made ### 1. **Updated `assets/js/voice-feedback.js`** #### Replaced Vosklet API with vosk-browser API: - Changed from `window.Vosklet` to `window.Vosk.createModel()` - Updated model loading to use async `createModel()`...">
+
+  
+
+  
+
+  
+  <link rel="alternate" type="application/rss+xml" title="Red Ackee Software" href="/preview-website/feed.xml">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/custom-styles.css">
+    
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Red Ackee Software">
+  <meta property="og:title" content="Vosk-Browser Migration Summary | Red Ackee Software">
+  <meta property="og:description" content="# Vosk-Browser Migration Summary ## Overview Successfully migrated from Vosklet to **vosk-browser** (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature. ## Changes Made ### 1. **Updated `assets/js/voice-feedback.js`** #### Replaced Vosklet API with vosk-browser API: - Changed from `window.Vosklet` to `window.Vosk.createModel()` - Updated model loading to use async `createModel()`...">
+
+  
+  <meta property="og:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/preview-website/VOSK_BROWSER_MIGRATION/">
+  <link rel="canonical" href="/preview-website/VOSK_BROWSER_MIGRATION/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@redackee">
+  <meta name="twitter:creator" content="@redackee">
+
+  <meta property="twitter:title" content="Vosk-Browser Migration Summary | Red Ackee Software">
+  <meta property="twitter:description" content="# Vosk-Browser Migration Summary ## Overview Successfully migrated from Vosklet to **vosk-browser** (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature. ## Changes Made ### 1. **Updated `assets/js/voice-feedback.js`** #### Replaced Vosklet API with vosk-browser API: - Changed from `window.Vosklet` to `window.Vosk.createModel()` - Updated model loading to use async `createModel()`...">
+
+  
+  <meta name="twitter:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+
+</head>
+
+
+<body>
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/preview-website/">Red Ackee Software</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/nkosidilworth/">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+                  <a class="dropdown-item" href="https://chat.openai.com/">ChatGPT</a>
+                  <a class="dropdown-item" href="https://gemini.google.com/">Google Gemini</a>
+                  <a class="dropdown-item" href="https://copilot.microsoft.com/">Microsoft Copilot</a>
+            </div>
+          </li>
+        </ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="/preview-website/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/preview-website/assets/img/avatar-redackee-200x200.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+
+
+  
+
+
+
+<header class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/preview-website">
+        <span class="site-title">
+          <span class="red-word">Red</span>
+          <span class="ackee-word">Ackee</span>
+          <span class="software-word">Software</span>
+        </span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/preview-website/">Red Ackee Software</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/nkosidilworth/">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+                  <a class="dropdown-item" href="https://chat.openai.com/">ChatGPT</a>
+                  <a class="dropdown-item" href="https://gemini.google.com/">Google Gemini</a>
+                  <a class="dropdown-item" href="https://copilot.microsoft.com/">Microsoft Copilot</a>
+            </div>
+          </li>
+        </ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="/preview-website/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/preview-website/assets/img/avatar-redackee-200x200.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+
+    </div>
+  </div>
+</header>
+
+<div class="intro-header ">
+  
+  <div class="header-overlay"></div>
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>
+            <span class="site-title">
+              <span class="red-word">Red</span>
+              <span class="ackee-word">Ackee</span>
+              <span class="software-word">Software</span>
+            </span>
+          </h1>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+
+
+<main class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+      
+
+      <h1 id="vosk-browser-migration-summary">Vosk-Browser Migration Summary</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Successfully migrated from Vosklet to <strong>vosk-browser</strong> (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature.</p>
+
+<h2 id="changes-made">Changes Made</h2>
+
+<h3 id="1-updated-assetsjsvoice-feedbackjs">1. <strong>Updated <code class="language-plaintext highlighter-rouge">assets/js/voice-feedback.js</code></strong></h3>
+
+<h4 id="replaced-vosklet-api-with-vosk-browser-api">Replaced Vosklet API with vosk-browser API:</h4>
+
+<ul>
+  <li>Changed from <code class="language-plaintext highlighter-rouge">window.Vosklet</code> to <code class="language-plaintext highlighter-rouge">window.Vosk.createModel()</code></li>
+  <li>Updated model loading to use async <code class="language-plaintext highlighter-rouge">createModel()</code> function</li>
+  <li>Changed recognizer initialization to use <code class="language-plaintext highlighter-rouge">model.KaldiRecognizer(sampleRate)</code></li>
+  <li>Added event listeners for <code class="language-plaintext highlighter-rouge">"result"</code> and <code class="language-plaintext highlighter-rouge">"partialresult"</code> events</li>
+  <li>Updated transcription function to use <code class="language-plaintext highlighter-rouge">acceptWaveform()</code> and <code class="language-plaintext highlighter-rouge">retrieveFinalResult()</code> methods</li>
+</ul>
+
+<h4 id="key-api-changes">Key API Changes:</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// OLD (Vosklet):</span>
+<span class="nx">voskletRecognizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Vosklet</span><span class="p">.</span><span class="nx">Recognizer</span><span class="p">({</span><span class="nx">modelPath</span><span class="p">});</span>
+<span class="k">await</span> <span class="nx">voskletRecognizer</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+
+<span class="c1">// NEW (vosk-browser):</span>
+<span class="nx">voskModel</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Vosk</span><span class="p">.</span><span class="nx">createModel</span><span class="p">(</span><span class="nx">modelUrl</span><span class="p">);</span>
+<span class="nx">voskRecognizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">voskModel</span><span class="p">.</span><span class="nx">KaldiRecognizer</span><span class="p">(</span><span class="nx">sampleRate</span><span class="p">);</span>
+<span class="nx">voskRecognizer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="2-updated-_includesfooterhtml">2. <strong>Updated <code class="language-plaintext highlighter-rouge">_includes/footer.html</code></strong></h3>
+
+<p>Added vosk-browser library from <strong>local assets</strong> (not CDN):</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script
+  </span><span class="na">type=</span><span class="s">"application/javascript"</span>
+  <span class="na">src=</span><span class="s">"/preview-website/assets/wasm/vosk.js"</span>
+<span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>This loads before the voice-feedback.js script so the <code class="language-plaintext highlighter-rouge">window.Vosk</code> object is available.</p>
+
+<p><strong>File:</strong> <code class="language-plaintext highlighter-rouge">/assets/wasm/vosk.js</code> (5.5 MB) - Downloaded from npm package vosk-browser@0.0.8</p>
+
+<h3 id="3-created-model-archive">3. <strong>Created Model Archive</strong></h3>
+
+<p>Created <code class="language-plaintext highlighter-rouge">vosk-model-small-en-us-0.15.tar.gz</code> (39 MB) from the existing model directory:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>czf vosk-model-small-en-us-0.15.tar.gz vosk-model-small-en-us-0.15/
+</code></pre></div></div>
+
+<p><strong>Location:</strong> <code class="language-plaintext highlighter-rouge">/assets/wasm/vosk-model-small-en-us-0.15.tar.gz</code></p>
+
+<p>vosk-browser requires models to be in <code class="language-plaintext highlighter-rouge">.tar.gz</code> format for proper loading and extraction.</p>
+
+<h2 id="files-modified">Files Modified</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">/assets/js/voice-feedback.js</code></strong> - Updated voice recognition logic</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">/_includes/footer.html</code></strong> - Added vosk-browser CDN script</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">/assets/wasm/</code></strong> - Created tar.gz model archive</li>
+</ol>
+
+<h2 id="files-no-longer-needed-can-be-removed">Files No Longer Needed (Can be removed)</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/Vosklet.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/Vosklet.wasm</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/Vosklet.browser.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/load-vosket.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/README-browser.md</code></li>
+</ul>
+
+<p>These were part of the old Vosklet implementation and are no longer used.</p>
+
+<h2 id="how-it-works-now">How It Works Now</h2>
+
+<h3 id="architecture">Architecture:</h3>
+
+<ol>
+  <li>
+    <p><strong>Model Loading:</strong></p>
+
+    <ul>
+      <li>vosk-browser library loaded from CDN (jsdelivr)</li>
+      <li>Model tar.gz downloaded and extracted by vosk-browser worker</li>
+      <li>Model stored in browser IndexedDB for persistence</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Transcription Flow:</strong></p>
+
+    <ul>
+      <li><strong>Primary:</strong> Web Speech Recognition API (live, works in Chrome/Edge/Safari)</li>
+      <li><strong>Fallback:</strong> MediaRecorder → AudioBlob → vosk-browser offline transcription</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Event Flow:</strong></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User clicks avatar
+→ Request mic permission
+→ Start recording (MediaRecorder)
+→ User speaks
+→ Stop recording
+→ Convert to AudioBuffer
+→ Feed to vosk-browser recognizer.acceptWaveform()
+→ Retrieve final result
+→ Display in modal
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="testing">Testing</h2>
+
+<h3 id="to-test-the-voice-feature">To test the voice feature:</h3>
+
+<ol>
+  <li><strong>Open site:</strong> http://127.0.0.1:4000/redackee.github.io/</li>
+  <li><strong>Open DevTools Console</strong> (F12 or Cmd+Option+I)</li>
+  <li>
+    <p><strong>Look for console messages:</strong></p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">[voice-feedback] loaded version 2025-10-05-test</code></li>
+      <li><code class="language-plaintext highlighter-rouge">[vosk-browser] Loading model from: ...</code></li>
+      <li><code class="language-plaintext highlighter-rouge">[vosk-browser] Model loaded and ready</code></li>
+    </ul>
+  </li>
+  <li><strong>Test voice input:</strong>
+    <ul>
+      <li>Hover over avatar in footer → hear prompt</li>
+      <li>Click avatar → grant mic permission</li>
+      <li>Speak clearly</li>
+      <li>See transcription in modal</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="expected-console-output">Expected Console Output:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[voice-feedback] loaded version 2025-10-05-test
+[vosk-browser] Loading model from: /redackee.github.io/assets/wasm/vosk-model-small-en-us-0.15.tar.gz
+[vosk-browser] Model loaded and ready
+</code></pre></div></div>
+
+<h2 id="benefits-of-vosk-browser">Benefits of vosk-browser</h2>
+
+<p>✅ <strong>Actively maintained</strong> - Official browser build from Vosk team<br />
+✅ <strong>Better API</strong> - Event-driven, cleaner interface<br />
+✅ <strong>Web Worker</strong> - Runs in background, doesn’t block UI<br />
+✅ <strong>Persistent storage</strong> - Model cached in IndexedDB<br />
+✅ <strong>CDN available</strong> - Easy to load from jsdelivr<br />
+✅ <strong>TypeScript support</strong> - Better developer experience<br />
+✅ <strong>Documentation</strong> - Well-documented with examples</p>
+
+<h2 id="performance">Performance</h2>
+
+<ul>
+  <li><strong>Model size:</strong> 39 MB compressed (68 MB uncompressed)</li>
+  <li><strong>First load:</strong> ~5-10 seconds (downloads + extracts model)</li>
+  <li><strong>Subsequent loads:</strong> Instant (cached in IndexedDB)</li>
+  <li><strong>Transcription:</strong> Real-time (processes as audio is fed)</li>
+</ul>
+
+<h2 id="browser-compatibility">Browser Compatibility</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Chrome</th>
+      <th>Firefox</th>
+      <th>Safari</th>
+      <th>Edge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Web Speech API</td>
+      <td>✅</td>
+      <td>❌</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>vosk-browser</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>MediaRecorder</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Recommendation:</strong> vosk-browser provides offline capability for all browsers, while Web Speech API provides faster results where available.</p>
+
+<h2 id="next-steps-optional">Next Steps (Optional)</h2>
+
+<ol>
+  <li><strong>Remove old Vosklet files</strong> to clean up the repository</li>
+  <li><strong>Add loading indicator</strong> while model downloads (first visit)</li>
+  <li><strong>Add language selection</strong> if multi-language support is needed</li>
+  <li><strong>Optimize model size</strong> - Consider using a smaller model for faster loading</li>
+  <li><strong>Add tests</strong> - Automated testing of voice features</li>
+</ol>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><strong>vosk-browser GitHub:</strong> https://github.com/redackee/vosk-browser</li>
+  <li><strong>vosk-browser Demo:</strong> https://ccoreilly.github.io/vosk-browser/</li>
+  <li><strong>Vosk Models:</strong> https://alphacephei.com/vosk/models</li>
+  <li><strong>Web Speech API:</strong> https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API</li>
+</ul>
+
+<hr />
+
+<p><strong>Migration completed:</strong> October 8, 2025<br />
+<strong>Version:</strong> VF 2025-10-05-test</p>
+
+
+      
+
+      
+
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      
+<ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="mailto:ndilworth.work@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/redackee" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/redackee" title="X (Twitter)">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">X (Twitter)</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/nkosidilworth" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li></ul>
+
+
+      
+      <p class="copyright text-muted">
+      
+        Nkosi Dilworth
+            <!-- Voice Feedback Microphone Avatar -->
+            <div id="voice-feedback-avatar" class="voice-feedback-avatar" title="Send voice feedback">
+              <img src="/preview-website/assets/img/avatar-redackee-200x200.png" alt="Microphone Avatar" id="mic-avatar-img">
+            </div>
+        &nbsp;&bull;&nbsp;
+      
+      2025
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="/preview-website/">redackee.com</a>
+        </span>
+      
+
+      
+
+      
+
+      </p>
+      <p class="theme-by text-muted">
+    <script>
+      // Expose the runtime baseurl to client-side scripts
+      window.siteBaseurl = "/preview-website";
+    </script>
+    <!-- vosk-browser library (local) -->
+    <script type="application/javascript" src="/preview-website/assets/wasm/vosk.js"></script>
+    <script src="/preview-website/assets/js/voice-feedback.js"></script>
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/preview-website/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

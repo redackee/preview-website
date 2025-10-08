@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  
+
+  <title>Local vosk-browser Setup - Summary | Red Ackee Software</title>
+
+  
+  
+  <meta name="author" content="Nkosi Dilworth">
+  
+
+  <meta name="description" content="# Local vosk-browser Setup - Summary ## ✅ Completed: Local Installation Successfully configured vosk-browser to load from **local files** instead of CDN. --- ## Files Added ### `/assets/wasm/vosk.js` - **Size:** 5.5 MB - **Source:** Downloaded from npm package `vosk-browser@0.0.8` - **URL:** https://cdn.jsdelivr.net/npm/vosk-browser@0.0.8/dist/vosk.js - **Purpose:** Complete vosk-browser library including Web Worker...">
+
+  
+
+  
+
+  
+  <link rel="alternate" type="application/rss+xml" title="Red Ackee Software" href="/preview-website/feed.xml">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/custom-styles.css">
+    
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Red Ackee Software">
+  <meta property="og:title" content="Local vosk-browser Setup - Summary | Red Ackee Software">
+  <meta property="og:description" content="# Local vosk-browser Setup - Summary ## ✅ Completed: Local Installation Successfully configured vosk-browser to load from **local files** instead of CDN. --- ## Files Added ### `/assets/wasm/vosk.js` - **Size:** 5.5 MB - **Source:** Downloaded from npm package `vosk-browser@0.0.8` - **URL:** https://cdn.jsdelivr.net/npm/vosk-browser@0.0.8/dist/vosk.js - **Purpose:** Complete vosk-browser library including Web Worker...">
+
+  
+  <meta property="og:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/preview-website/LOCAL_VOSK_SETUP/">
+  <link rel="canonical" href="/preview-website/LOCAL_VOSK_SETUP/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@redackee">
+  <meta name="twitter:creator" content="@redackee">
+
+  <meta property="twitter:title" content="Local vosk-browser Setup - Summary | Red Ackee Software">
+  <meta property="twitter:description" content="# Local vosk-browser Setup - Summary ## ✅ Completed: Local Installation Successfully configured vosk-browser to load from **local files** instead of CDN. --- ## Files Added ### `/assets/wasm/vosk.js` - **Size:** 5.5 MB - **Source:** Downloaded from npm package `vosk-browser@0.0.8` - **URL:** https://cdn.jsdelivr.net/npm/vosk-browser@0.0.8/dist/vosk.js - **Purpose:** Complete vosk-browser library including Web Worker...">
+
+  
+  <meta name="twitter:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+
+</head>
+
+
+<body>
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/preview-website/">Red Ackee Software</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/nkosidilworth/">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+                  <a class="dropdown-item" href="https://chat.openai.com/">ChatGPT</a>
+                  <a class="dropdown-item" href="https://gemini.google.com/">Google Gemini</a>
+                  <a class="dropdown-item" href="https://copilot.microsoft.com/">Microsoft Copilot</a>
+            </div>
+          </li>
+        </ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="/preview-website/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/preview-website/assets/img/avatar-redackee-200x200.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+
+
+  
+
+
+
+<header class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/preview-website">
+        <span class="site-title">
+          <span class="red-word">Red</span>
+          <span class="ackee-word">Ackee</span>
+          <span class="software-word">Software</span>
+        </span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/preview-website/">Red Ackee Software</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/nkosidilworth/">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+                  <a class="dropdown-item" href="https://chat.openai.com/">ChatGPT</a>
+                  <a class="dropdown-item" href="https://gemini.google.com/">Google Gemini</a>
+                  <a class="dropdown-item" href="https://copilot.microsoft.com/">Microsoft Copilot</a>
+            </div>
+          </li>
+        </ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="/preview-website/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/preview-website/assets/img/avatar-redackee-200x200.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+
+    </div>
+  </div>
+</header>
+
+<div class="intro-header ">
+  
+  <div class="header-overlay"></div>
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>
+            <span class="site-title">
+              <span class="red-word">Red</span>
+              <span class="ackee-word">Ackee</span>
+              <span class="software-word">Software</span>
+            </span>
+          </h1>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+
+
+<main class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+      
+
+      <h1 id="local-vosk-browser-setup---summary">Local vosk-browser Setup - Summary</h1>
+
+<h2 id="-completed-local-installation">✅ Completed: Local Installation</h2>
+
+<p>Successfully configured vosk-browser to load from <strong>local files</strong> instead of CDN.</p>
+
+<hr />
+
+<h2 id="files-added">Files Added</h2>
+
+<h3 id="assetswasmvoskjs"><code class="language-plaintext highlighter-rouge">/assets/wasm/vosk.js</code></h3>
+
+<ul>
+  <li><strong>Size:</strong> 5.5 MB</li>
+  <li><strong>Source:</strong> Downloaded from npm package <code class="language-plaintext highlighter-rouge">vosk-browser@0.0.8</code></li>
+  <li><strong>URL:</strong> https://cdn.jsdelivr.net/npm/vosk-browser@0.0.8/dist/vosk.js</li>
+  <li><strong>Purpose:</strong> Complete vosk-browser library including Web Worker code</li>
+</ul>
+
+<h3 id="assetswasmvosk-model-small-en-us-015targz"><code class="language-plaintext highlighter-rouge">/assets/wasm/vosk-model-small-en-us-0.15.tar.gz</code></h3>
+
+<ul>
+  <li><strong>Size:</strong> 39 MB compressed (68 MB uncompressed)</li>
+  <li><strong>Source:</strong> Created from existing model directory</li>
+  <li><strong>Command:</strong> <code class="language-plaintext highlighter-rouge">tar czf vosk-model-small-en-us-0.15.tar.gz vosk-model-small-en-us-0.15/</code></li>
+  <li><strong>Purpose:</strong> Vosk speech recognition model for English (US)</li>
+</ul>
+
+<hr />
+
+<h2 id="configuration-changes">Configuration Changes</h2>
+
+<h3 id="_includesfooterhtml"><code class="language-plaintext highlighter-rouge">_includes/footer.html</code></h3>
+
+<p><strong>Changed from CDN:</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script
+  </span><span class="na">type=</span><span class="s">"application/javascript"</span>
+  <span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/vosk-browser@0.0.8/dist/vosk.js"</span>
+<span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p><strong>To local file:</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script
+  </span><span class="na">type=</span><span class="s">"application/javascript"</span>
+  <span class="na">src=</span><span class="s">"/preview-website/assets/wasm/vosk.js"</span>
+<span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="benefits-of-local-installation">Benefits of Local Installation</h2>
+
+<p>✅ <strong>No external dependencies</strong> - Works offline, no CDN required<br />
+✅ <strong>Privacy</strong> - No requests to external servers<br />
+✅ <strong>Speed</strong> - No CDN latency<br />
+✅ <strong>Reliability</strong> - Not affected by CDN outages<br />
+✅ <strong>Version control</strong> - Exact version is tracked in repo<br />
+✅ <strong>No CORS issues</strong> - Everything served from same origin</p>
+
+<hr />
+
+<h2 id="file-structure">File Structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assets/wasm/
+├── vosk.js                                  (5.5 MB) ✅ NEW
+├── vosk-model-small-en-us-0.15.tar.gz      (39 MB)  ✅ NEW
+├── vosk-model-small-en-us-0.15/            (68 MB)  ✅ Existing
+│   ├── README
+│   ├── am/
+│   ├── conf/
+│   ├── graph/
+│   └── ivector/
+├── Vosklet.js                              (25 KB)  ⚠️ Old (can remove)
+├── Vosklet.wasm                            (2.2 MB) ⚠️ Old (can remove)
+├── Vosklet.browser.js                      (1.5 KB) ⚠️ Old (can remove)
+├── load-vosket.js                          (1.5 KB) ⚠️ Old (can remove)
+└── README-browser.md                                ⚠️ Old (can remove)
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="verification">Verification</h2>
+
+<h3 id="server-is-serving-the-file">Server is serving the file:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-lh</span> /Users/ndilworth/Workspace/redackee.github.io/_site/assets/wasm/vosk.js
+<span class="c"># Output: -rw-r--r--@ 1 ndilworth staff 5.5M Oct 8 17:33 vosk.js ✅</span>
+</code></pre></div></div>
+
+<h3 id="script-tag-in-html">Script tag in HTML:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="s1">'assets/wasm/vosk.js'</span> _site/index.html
+<span class="c"># Output: assets/wasm/vosk.js ✅</span>
+</code></pre></div></div>
+
+<h3 id="site-url">Site URL:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:4000/redackee.github.io/assets/wasm/vosk.js
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="how-vosk-browser-works-local-setup">How vosk-browser Works (Local Setup)</h2>
+
+<ol>
+  <li><strong>Page loads</strong> → Browser downloads <code class="language-plaintext highlighter-rouge">vosk.js</code> (5.5 MB) from local server</li>
+  <li><strong>vosk.js initializes</strong> → Creates internal Web Worker</li>
+  <li><strong>Model loads</strong> → Worker downloads and extracts <code class="language-plaintext highlighter-rouge">vosk-model-small-en-us-0.15.tar.gz</code> (39 MB)</li>
+  <li><strong>Model cached</strong> → Stored in browser IndexedDB for future use</li>
+  <li><strong>Ready to use</strong> → Voice recognition available offline</li>
+</ol>
+
+<p><strong>First load:</strong> ~10-15 seconds (downloads model)<br />
+<strong>Subsequent loads:</strong> Instant (model cached in IndexedDB)</p>
+
+<hr />
+
+<h2 id="testing">Testing</h2>
+
+<h3 id="browser-console-commands">Browser Console Commands:</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Check if vosk-browser loaded</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Vosk loaded:</span><span class="dl">"</span><span class="p">,</span> <span class="k">typeof</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Vosk</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">undefined</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Check version badge</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="dl">"</span><span class="s2">Version badge:</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">voice-feedback-version</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// Test model loading</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">[vosk-browser] Check console for loading messages</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="expected-console-output">Expected Console Output:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[voice-feedback] loaded version 2025-10-05-test
+[vosk-browser] Loading model from: /redackee.github.io/assets/wasm/vosk-model-small-en-us-0.15.tar.gz
+[vosk-browser] Model loaded and ready
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="next-steps-optional">Next Steps (Optional)</h2>
+
+<ol>
+  <li>✅ <strong>Done:</strong> Local vosk.js installation</li>
+  <li>✅ <strong>Done:</strong> Model tar.gz created</li>
+  <li>⚠️ <strong>Optional:</strong> Remove old Vosklet files</li>
+  <li>⚠️ <strong>Optional:</strong> Add loading indicator while model downloads</li>
+  <li>⚠️ <strong>Optional:</strong> Compress vosk.js with gzip on server (reduce transfer size)</li>
+</ol>
+
+<hr />
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+  <li><strong>No separate worker/wasm files needed</strong> - vosk.js is self-contained</li>
+  <li><strong>Model persists</strong> - After first download, model stays in IndexedDB</li>
+  <li><strong>Fallback available</strong> - Web Speech API works if vosk-browser fails</li>
+  <li><strong>Large files</strong> - Total ~45 MB (vosk.js 5.5 MB + model 39 MB)</li>
+  <li><strong>Git LFS recommended</strong> - Consider using Git LFS for large binary files</li>
+</ul>
+
+<hr />
+
+<p><strong>Setup completed:</strong> October 8, 2025<br />
+<strong>vosk-browser version:</strong> 0.0.8<br />
+<strong>Installation:</strong> Local (no CDN)</p>
+
+
+      
+
+      
+
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      
+<ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="mailto:ndilworth.work@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/redackee" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/redackee" title="X (Twitter)">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">X (Twitter)</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/nkosidilworth" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li></ul>
+
+
+      
+      <p class="copyright text-muted">
+      
+        Nkosi Dilworth
+            <!-- Voice Feedback Microphone Avatar -->
+            <div id="voice-feedback-avatar" class="voice-feedback-avatar" title="Send voice feedback">
+              <img src="/preview-website/assets/img/avatar-redackee-200x200.png" alt="Microphone Avatar" id="mic-avatar-img">
+            </div>
+        &nbsp;&bull;&nbsp;
+      
+      2025
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="/preview-website/">redackee.com</a>
+        </span>
+      
+
+      
+
+      
+
+      </p>
+      <p class="theme-by text-muted">
+    <script>
+      // Expose the runtime baseurl to client-side scripts
+      window.siteBaseurl = "/preview-website";
+    </script>
+    <!-- vosk-browser library (local) -->
+    <script type="application/javascript" src="/preview-website/assets/wasm/vosk.js"></script>
+    <script src="/preview-website/assets/js/voice-feedback.js"></script>
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/preview-website/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
