@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  
+
+  <title>Voice Features Testing Guide | Red Ackee Software</title>
+
+  
+  
+  <meta name="author" content="Nkosi Dilworth">
+  
+
+  <meta name="description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser --- ## Test 1: Visual Elements ### Expected Elements: 1. **Version Badge** (bottom-right corner)...">
+
+  
+
+  
+
+  
+  <link rel="alternate" type="application/rss+xml" title="Red Ackee Software" href="/preview-website/feed.xml">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/preview-website/assets/css/custom-styles.css">
+    
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Red Ackee Software">
+  <meta property="og:title" content="Voice Features Testing Guide | Red Ackee Software">
+  <meta property="og:description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser --- ## Test 1: Visual Elements ### Expected Elements: 1. **Version Badge** (bottom-right corner)...">
+
+  
+  <meta property="og:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/preview-website/VOICE_TESTING_GUIDE/">
+  <link rel="canonical" href="/preview-website/VOICE_TESTING_GUIDE/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@redackee">
+  <meta name="twitter:creator" content="@redackee">
+
+  <meta property="twitter:title" content="Voice Features Testing Guide | Red Ackee Software">
+  <meta property="twitter:description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser --- ## Test 1: Visual Elements ### Expected Elements: 1. **Version Badge** (bottom-right corner)...">
+
+  
+  <meta name="twitter:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+
+</head>
+
+
+<body>
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/preview-website/">Red Ackee Software</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/nkosidilworth/">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+                  <a class="dropdown-item" href="https://chat.openai.com/">ChatGPT</a>
+                  <a class="dropdown-item" href="https://gemini.google.com/">Google Gemini</a>
+                  <a class="dropdown-item" href="https://copilot.microsoft.com/">Microsoft Copilot</a>
+            </div>
+          </li>
+        </ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="/preview-website/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/preview-website/assets/img/avatar-redackee-200x200.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+
+
+  
+
+
+
+<header class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/preview-website">
+        <span class="site-title">
+          <span class="red-word">Red</span>
+          <span class="ackee-word">Ackee</span>
+          <span class="software-word">Software</span>
+        </span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/preview-website/">Red Ackee Software</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/nkosidilworth/">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+                  <a class="dropdown-item" href="https://chat.openai.com/">ChatGPT</a>
+                  <a class="dropdown-item" href="https://gemini.google.com/">Google Gemini</a>
+                  <a class="dropdown-item" href="https://copilot.microsoft.com/">Microsoft Copilot</a>
+            </div>
+          </li>
+        </ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="/preview-website/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/preview-website/assets/img/avatar-redackee-200x200.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+
+    </div>
+  </div>
+</header>
+
+<div class="intro-header ">
+  
+  <div class="header-overlay"></div>
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>
+            <span class="site-title">
+              <span class="red-word">Red</span>
+              <span class="ackee-word">Ackee</span>
+              <span class="software-word">Software</span>
+            </span>
+          </h1>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+
+
+<main class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+      
+
+      <h1 id="voice-features-testing-guide">Voice Features Testing Guide</h1>
+
+<h2 id="-testing-the-voice-feedback-system">🎤 Testing the Voice Feedback System</h2>
+
+<p><strong>Site URL:</strong> http://127.0.0.1:4000/redackee.github.io/</p>
+
+<hr />
+
+<h2 id="pre-test-checklist">Pre-Test Checklist</h2>
+
+<p>✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/<br />
+✅ Browser has microphone permission capability<br />
+✅ Site loaded in browser</p>
+
+<hr />
+
+<h2 id="test-1-visual-elements">Test 1: Visual Elements</h2>
+
+<h3 id="expected-elements">Expected Elements:</h3>
+
+<ol>
+  <li>
+    <p><strong>Version Badge</strong> (bottom-right corner)</p>
+
+    <ul>
+      <li>Should display: <code class="language-plaintext highlighter-rouge">VF 2025-10-05-test</code></li>
+      <li>Location: Fixed position, bottom-right</li>
+      <li>Style: Dark background, white text</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Voice Avatar</strong> (in footer)</p>
+    <ul>
+      <li>Should display: redackee avatar image</li>
+      <li>Location: Footer, after author name</li>
+      <li>Tooltip: “Send voice feedback”</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="-how-to-check">✅ How to Check:</h3>
+
+<ul>
+  <li>Scroll to the bottom of the page</li>
+  <li>Look for the avatar image in the footer</li>
+  <li>Look for the version badge in the corner</li>
+</ul>
+
+<hr />
+
+<h2 id="test-2-console-messages">Test 2: Console Messages</h2>
+
+<h3 id="open-browser-devtools">Open Browser DevTools:</h3>
+
+<ul>
+  <li><strong>Chrome/Edge:</strong> Press <code class="language-plaintext highlighter-rouge">F12</code> or <code class="language-plaintext highlighter-rouge">Cmd+Option+I</code> (Mac) / <code class="language-plaintext highlighter-rouge">Ctrl+Shift+I</code> (Windows)</li>
+  <li><strong>Firefox:</strong> Press <code class="language-plaintext highlighter-rouge">F12</code> or <code class="language-plaintext highlighter-rouge">Cmd+Option+K</code> (Mac) / <code class="language-plaintext highlighter-rouge">Ctrl+Shift+K</code> (Windows)</li>
+  <li><strong>Safari:</strong> Enable Developer menu, then <code class="language-plaintext highlighter-rouge">Cmd+Option+C</code></li>
+</ul>
+
+<h3 id="expected-console-messages">Expected Console Messages:</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// On page load:</span>
+<span class="p">[</span><span class="nx">voice</span><span class="o">-</span><span class="nx">feedback</span><span class="p">]</span> <span class="nx">loaded</span> <span class="nx">version</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="nx">test</span>
+
+<span class="c1">// vosk-browser library check:</span>
+<span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Library</span> <span class="nx">not</span> <span class="nx">loaded</span><span class="p">.</span> <span class="nx">Will</span> <span class="nx">use</span> <span class="nx">Web</span> <span class="nx">Speech</span> <span class="nx">API</span> <span class="nx">fallback</span><span class="p">.</span>
+<span class="c1">// OR if vosk loads successfully:</span>
+<span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Loading</span> <span class="nx">model</span> <span class="k">from</span><span class="p">:</span> <span class="o">/</span><span class="nx">redackee</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">io</span><span class="o">/</span><span class="nx">assets</span><span class="o">/</span><span class="nx">wasm</span><span class="o">/</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">model</span><span class="o">-</span><span class="nx">small</span><span class="o">-</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span><span class="o">-</span><span class="mf">0.15</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">gz</span>
+<span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Model</span> <span class="nx">loaded</span> <span class="nx">and</span> <span class="nx">ready</span>
+</code></pre></div></div>
+
+<h3 id="-run-these-console-commands">✅ Run These Console Commands:</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1. Check if voice-feedback is loaded</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="dl">"</span><span class="s2">Version badge:</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">voice-feedback-version</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// 2. Check if avatar exists</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Avatar:</span><span class="dl">"</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">voice-feedback-avatar</span><span class="dl">"</span><span class="p">));</span>
+
+<span class="c1">// 3. Check if Vosk library loaded</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Vosk loaded:</span><span class="dl">"</span><span class="p">,</span> <span class="k">typeof</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Vosk</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">undefined</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// 4. Check site baseurl</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Site baseurl:</span><span class="dl">"</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">siteBaseurl</span><span class="p">);</span>
+
+<span class="c1">// 5. Check Web Speech API support</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="dl">"</span><span class="s2">Web Speech API:</span><span class="dl">"</span><span class="p">,</span>
+  <span class="o">!!</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">SpeechRecognition</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitSpeechRecognition</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="expected-results">Expected Results:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Version badge: &lt;div id="voice-feedback-version"&gt;...&lt;/div&gt;
+Avatar: &lt;div id="voice-feedback-avatar"&gt;...&lt;/div&gt;
+Vosk loaded: true (if vosk.js loaded)
+Site baseurl: /redackee.github.io
+Web Speech API: true (Chrome/Edge/Safari)
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="test-3-hover-interaction">Test 3: Hover Interaction</h2>
+
+<h3 id="steps">Steps:</h3>
+
+<ol>
+  <li>Scroll to the footer</li>
+  <li>Hover your mouse over the avatar image</li>
+</ol>
+
+<h3 id="expected-behavior">Expected Behavior:</h3>
+
+<ul>
+  <li>✅ Avatar should get <code class="language-plaintext highlighter-rouge">hover</code> CSS class</li>
+  <li>✅ Text-to-speech plays: “Welcome to Red Ackee software. Please tell us your idea or leave feedback…”</li>
+  <li>✅ Avatar may have visual hover effect (check CSS)</li>
+</ul>
+
+<h3 id="️-troubleshooting">⚠️ Troubleshooting:</h3>
+
+<ul>
+  <li>If no audio plays, check browser audio settings</li>
+  <li>Check console for errors</li>
+  <li>Verify prompt file loads: <code class="language-plaintext highlighter-rouge">http://127.0.0.1:4000/redackee.github.io/feedback_prompts/action_prompt.txt</code></li>
+</ul>
+
+<hr />
+
+<h2 id="test-4-click-to-record-web-speech-api">Test 4: Click to Record (Web Speech API)</h2>
+
+<h3 id="steps-1">Steps:</h3>
+
+<ol>
+  <li>Click the avatar in the footer</li>
+  <li>Browser will request microphone permission → <strong>Allow it</strong></li>
+  <li>Speak clearly: “This is a test”</li>
+  <li>Click the avatar again to stop recording</li>
+</ol>
+
+<h3 id="expected-behavior-1">Expected Behavior:</h3>
+
+<ul>
+  <li>✅ Browser asks for microphone permission</li>
+  <li>✅ Avatar gets <code class="language-plaintext highlighter-rouge">active</code> CSS class (visual feedback)</li>
+  <li>✅ Text-to-speech plays: “Please tell us your feedback or ideas”</li>
+  <li>✅ Recording indicator appears (check browser UI)</li>
+  <li>✅ After stopping, modal appears with transcribed text</li>
+</ul>
+
+<h3 id="console-messages">Console Messages:</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">voice</span><span class="o">-</span><span class="nx">feedback</span><span class="p">]</span> <span class="nx">Starting</span> <span class="nx">recording</span><span class="p">...</span>
+<span class="c1">// If Web Speech API is used:</span>
+<span class="nx">SpeechRecognition</span> <span class="nx">started</span>
+<span class="c1">// When you speak:</span>
+<span class="p">[</span><span class="nx">Web</span> <span class="nx">Speech</span> <span class="nx">API</span><span class="p">]</span> <span class="nx">Transcribed</span><span class="p">:</span> <span class="nx">This</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">test</span>
+</code></pre></div></div>
+
+<h3 id="modal-content">Modal Content:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Thank you for your feedback!
+Transcribed: This is a test
+[Close button]
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="test-5-vosk-browser-offline-transcription">Test 5: vosk-browser Offline Transcription</h2>
+
+<h3 id="when-this-activates">When This Activates:</h3>
+
+<ul>
+  <li>Web Speech API is not available (Firefox, or disabled)</li>
+  <li>Or explicitly falls back to MediaRecorder + vosk-browser</li>
+</ul>
+
+<h3 id="steps-2">Steps:</h3>
+
+<ol>
+  <li>(In Firefox or after disabling Web Speech API)</li>
+  <li>Click the avatar</li>
+  <li>Grant microphone permission</li>
+  <li>Speak: “Testing offline transcription”</li>
+  <li>Click avatar to stop</li>
+</ol>
+
+<h3 id="expected-behavior-2">Expected Behavior:</h3>
+
+<ul>
+  <li>✅ MediaRecorder captures audio</li>
+  <li>✅ Audio blob sent to vosk-browser</li>
+  <li>✅ vosk-browser transcribes offline</li>
+  <li>✅ Modal shows result</li>
+</ul>
+
+<h3 id="console-messages-1">Console Messages:</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Processing</span> <span class="nx">audio</span> <span class="nx">buffer</span><span class="p">,</span> <span class="nx">sample</span> <span class="nx">rate</span><span class="p">:</span> <span class="mi">48000</span>
+<span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Got</span> <span class="nx">final</span> <span class="nx">result</span><span class="p">:</span> <span class="p">{</span> <span class="nl">text</span><span class="p">:</span> <span class="dl">"</span><span class="s2">testing offline transcription</span><span class="dl">"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="️-note">⚠️ Note:</h3>
+
+<ul>
+  <li>First time: Downloads model (39 MB) - takes ~10-15 seconds</li>
+  <li>Subsequent times: Instant (cached in IndexedDB)</li>
+</ul>
+
+<hr />
+
+<h2 id="test-6-prompt-files">Test 6: Prompt Files</h2>
+
+<h3 id="verify-prompt-files-load">Verify Prompt Files Load:</h3>
+
+<p><strong>Action Prompt (on hover):</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:4000/redackee.github.io/feedback_prompts/action_prompt.txt
+</code></pre></div></div>
+
+<p><strong>Request Prompt (on recording start):</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:4000/redackee.github.io/feedback_prompts/request_prompt.txt
+</code></pre></div></div>
+
+<h3 id="-manual-check">✅ Manual Check:</h3>
+
+<p>Open these URLs in browser to verify they load:</p>
+
+<ul>
+  <li>Should see text content (not 404)</li>
+  <li>action_prompt.txt: “Welcome to Red Ackee software…”</li>
+  <li>request_prompt.txt: “Please tell us your feedback or ideas.”</li>
+</ul>
+
+<hr />
+
+<h2 id="test-7-model-loading-vosk-browser">Test 7: Model Loading (vosk-browser)</h2>
+
+<h3 id="check-model-file">Check Model File:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:4000/redackee.github.io/assets/wasm/vosk-model-small-en-us-0.15.tar.gz
+</code></pre></div></div>
+
+<h3 id="expected">Expected:</h3>
+
+<ul>
+  <li>Should download 39 MB file</li>
+  <li>Browser may show download progress</li>
+</ul>
+
+<h3 id="console-commands-to-monitor">Console Commands to Monitor:</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Check if model is being loaded</span>
+<span class="nx">performance</span>
+  <span class="p">.</span><span class="nx">getEntriesByType</span><span class="p">(</span><span class="dl">"</span><span class="s2">resource</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">"</span><span class="s2">vosk-model</span><span class="dl">"</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">transferSize</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> bytes</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="test-8-complete-flow-test">Test 8: Complete Flow Test</h2>
+
+<h3 id="full-integration-test">Full Integration Test:</h3>
+
+<ol>
+  <li><strong>Load page</strong> → Check console for version message</li>
+  <li><strong>Hover avatar</strong> → Hear prompt</li>
+  <li><strong>Click avatar</strong> → Grant mic permission</li>
+  <li><strong>Speak</strong> → “Hello this is my feedback”</li>
+  <li><strong>Click again</strong> → Stop recording</li>
+  <li><strong>See modal</strong> → Verify transcribed text</li>
+  <li><strong>Close modal</strong> → Click Close button</li>
+  <li><strong>Repeat</strong> → Should work faster (model cached)</li>
+</ol>
+
+<hr />
+
+<h2 id="expected-results-summary">Expected Results Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Page loads</td>
+      <td>✅</td>
+      <td>Should be fast</td>
+    </tr>
+    <tr>
+      <td>Version badge visible</td>
+      <td>✅</td>
+      <td>Bottom-right corner</td>
+    </tr>
+    <tr>
+      <td>Avatar visible</td>
+      <td>✅</td>
+      <td>In footer</td>
+    </tr>
+    <tr>
+      <td>Hover plays audio</td>
+      <td>✅</td>
+      <td>Text-to-speech</td>
+    </tr>
+    <tr>
+      <td>Click requests mic</td>
+      <td>✅</td>
+      <td>Browser prompt</td>
+    </tr>
+    <tr>
+      <td>Recording works</td>
+      <td>✅</td>
+      <td>Visual feedback</td>
+    </tr>
+    <tr>
+      <td>Web Speech API</td>
+      <td>✅</td>
+      <td>Chrome/Edge/Safari</td>
+    </tr>
+    <tr>
+      <td>vosk-browser fallback</td>
+      <td>✅</td>
+      <td>Firefox or explicit fallback</td>
+    </tr>
+    <tr>
+      <td>Transcription shows</td>
+      <td>✅</td>
+      <td>In modal</td>
+    </tr>
+    <tr>
+      <td>Modal closes</td>
+      <td>✅</td>
+      <td>Close button works</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="no-audio-prompts">No audio prompts?</h3>
+
+<ul>
+  <li>Check browser audio not muted</li>
+  <li>Check console for fetch errors</li>
+  <li>Verify prompt files exist and load</li>
+</ul>
+
+<h3 id="microphone-permission-denied">Microphone permission denied?</h3>
+
+<ul>
+  <li>Browser settings → Site permissions → Microphone</li>
+  <li>Try HTTPS (some browsers require secure context)</li>
+</ul>
+
+<h3 id="no-transcription">No transcription?</h3>
+
+<ul>
+  <li>Check console for errors</li>
+  <li>Verify Web Speech API support: <code class="language-plaintext highlighter-rouge">console.log(!!(window.SpeechRecognition || window.webkitSpeechRecognition))</code></li>
+  <li>Check vosk-browser loaded: <code class="language-plaintext highlighter-rouge">console.log(typeof window.Vosk)</code></li>
+</ul>
+
+<h3 id="vosk-browser-not-loading-model">vosk-browser not loading model?</h3>
+
+<ul>
+  <li>Check network tab for model download</li>
+  <li>Clear IndexedDB cache and retry</li>
+  <li>Check model URL: <code class="language-plaintext highlighter-rouge">/assets/wasm/vosk-model-small-en-us-0.15.tar.gz</code></li>
+</ul>
+
+<h3 id="console-errors">Console errors?</h3>
+
+<ul>
+  <li>Check for CORS issues (should be same-origin)</li>
+  <li>Check for JavaScript errors</li>
+  <li>Verify all files built to <code class="language-plaintext highlighter-rouge">_site/</code></li>
+</ul>
+
+<hr />
+
+<h2 id="browser-compatibility">Browser Compatibility</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Browser</th>
+      <th>Web Speech API</th>
+      <th>vosk-browser</th>
+      <th>MediaRecorder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chrome</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Edge</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Safari</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Firefox</td>
+      <td>❌</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Opera</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Recommendation:</strong> Test in Chrome first (full support), then Firefox (vosk-browser only)</p>
+
+<hr />
+
+<h2 id="quick-test-script">Quick Test Script</h2>
+
+<p>Copy/paste into browser console:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Quick voice feature check</span>
+<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">=== Voice Feature Test ===</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="dl">"</span><span class="s2">Version badge:</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">voice-feedback-version</span><span class="dl">"</span><span class="p">)?.</span><span class="nx">textContent</span>
+  <span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="dl">"</span><span class="s2">Avatar element:</span><span class="dl">"</span><span class="p">,</span>
+    <span class="o">!!</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">voice-feedback-avatar</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Vosk loaded:</span><span class="dl">"</span><span class="p">,</span> <span class="k">typeof</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Vosk</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">undefined</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="dl">"</span><span class="s2">Web Speech API:</span><span class="dl">"</span><span class="p">,</span>
+    <span class="o">!!</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">SpeechRecognition</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitSpeechRecognition</span><span class="p">)</span>
+  <span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Site baseurl:</span><span class="dl">"</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">siteBaseurl</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">MediaRecorder:</span><span class="dl">"</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">MediaRecorder</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">undefined</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="c1">// Check prompt files</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">siteBaseurl</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/feedback_prompts/action_prompt.txt</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Action prompt:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">ok</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">FAILED</span><span class="dl">"</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Action prompt error:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">e</span><span class="p">));</span>
+
+  <span class="nx">fetch</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">siteBaseurl</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/feedback_prompts/request_prompt.txt</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Request prompt:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">ok</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">FAILED</span><span class="dl">"</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Request prompt error:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">e</span><span class="p">));</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">=== Test Complete ===</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<p>✅ <strong>PASS if:</strong></p>
+
+<ul>
+  <li>All console checks return expected values</li>
+  <li>Avatar responds to hover</li>
+  <li>Recording starts when clicked</li>
+  <li>Transcription appears in modal</li>
+  <li>Modal closes properly</li>
+</ul>
+
+<p>⚠️ <strong>PARTIAL if:</strong></p>
+
+<ul>
+  <li>Some features work, others fail</li>
+  <li>vosk-browser doesn’t load but Web Speech API works</li>
+</ul>
+
+<p>❌ <strong>FAIL if:</strong></p>
+
+<ul>
+  <li>No console messages appear</li>
+  <li>Avatar doesn’t exist</li>
+  <li>Nothing happens on click</li>
+  <li>JavaScript errors in console</li>
+</ul>
+
+<hr />
+
+<p><strong>Test Date:</strong> October 8, 2025<br />
+<strong>Version:</strong> VF 2025-10-05-test<br />
+<strong>vosk-browser:</strong> 0.0.8 (local)</p>
+
+
+      
+
+      
+
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      
+<ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="mailto:ndilworth.work@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/redackee" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/redackee" title="X (Twitter)">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">X (Twitter)</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/nkosidilworth" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li></ul>
+
+
+      
+      <p class="copyright text-muted">
+      
+        Nkosi Dilworth
+            <!-- Voice Feedback Microphone Avatar -->
+            <div id="voice-feedback-avatar" class="voice-feedback-avatar" title="Send voice feedback">
+              <img src="/preview-website/assets/img/avatar-redackee-200x200.png" alt="Microphone Avatar" id="mic-avatar-img">
+            </div>
+        &nbsp;&bull;&nbsp;
+      
+      2025
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="/preview-website/">redackee.com</a>
+        </span>
+      
+
+      
+
+      
+
+      </p>
+      <p class="theme-by text-muted">
+    <script>
+      // Expose the runtime baseurl to client-side scripts
+      window.siteBaseurl = "/preview-website";
+    </script>
+    <!-- vosk-browser library (local) -->
+    <script type="application/javascript" src="/preview-website/assets/wasm/vosk.js"></script>
+    <script src="/preview-website/assets/js/voice-feedback.js"></script>
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/preview-website/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

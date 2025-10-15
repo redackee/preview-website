@@ -18,6 +18,14 @@
 }, 
  
 { 
+"title"    : "Voice Features Testing Guide", 
+"desc"     : "Voice Features Testing Guide", 
+"category" : "page", 
+"url"      : "/preview-website/VOICE_TESTING_GUIDE/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
 "title"    : "Vosk-Browser Migration Summary", 
 "desc"     : "Vosk-Browser Migration Summary", 
 "category" : "page", 
