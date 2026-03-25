@@ -13,7 +13,15 @@
 "title"    : "Local vosk-browser Setup - Summary", 
 "desc"     : "Local vosk-browser Setup - Summary", 
 "category" : "page", 
-"url"      : "/preview-website/LOCAL_VOSK_SETUP/", 
+"url"      : "/preview-website/DOCUMENTS/LOCAL_VOSK_SETUP/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
+"title"    : "Project Setup and Troubleshooting Summary", 
+"desc"     : "Project Setup and Troubleshooting Summary", 
+"category" : "page", 
+"url"      : "/preview-website/DOCUMENTS/SETUP_SUMMARY/", 
 "date"     : "January 1, 1970" 
 }, 
  
@@ -21,7 +29,7 @@
 "title"    : "Voice Features Testing Guide", 
 "desc"     : "Voice Features Testing Guide", 
 "category" : "page", 
-"url"      : "/preview-website/VOICE_TESTING_GUIDE/", 
+"url"      : "/preview-website/DOCUMENTS/VOICE_TESTING_GUIDE/", 
 "date"     : "January 1, 1970" 
 }, 
  
@@ -29,7 +37,7 @@
 "title"    : "Vosk-Browser Migration Summary", 
 "desc"     : "Vosk-Browser Migration Summary", 
 "category" : "page", 
-"url"      : "/preview-website/VOSK_BROWSER_MIGRATION/", 
+"url"      : "/preview-website/DOCUMENTS/VOSK_BROWSER_MIGRATION/", 
 "date"     : "January 1, 1970" 
 }, 
  

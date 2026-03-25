@@ -11,14 +11,14 @@
 
   
 
-  <title>Red Ackee Software</title>
+  <title>Project Setup and Troubleshooting Summary | Red Ackee Software</title>
 
   
   
   <meta name="author" content="Nkosi Dilworth">
   
 
-  <meta name="description" content="Browser-friendly Vosklet build (recommended) This repository includes a small mock `Vosklet.browser.js` for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports. Where to get a browser build 1. Official sources - Check the Vosk project releases: https://github.com/alphacep/vosk-browser or...">
+  <meta name="description" content="# Project Setup and Troubleshooting Summary ## Actions Taken 1. **Configured GitHub Pages Remote Theme** - Verified `_config.yml` includes `remote_theme: &quot;redackee/beautiful-jekyll&quot;`. - Confirmed correct usage for GitHub Pages and Jekyll. 2. **Created Gemfile for Local Development** - Added a `Gemfile` with: ```ruby gem &apos;github-pages&apos;, group: :jekyll_plugins ``` - Noted that...">
 
   
 
@@ -85,8 +85,8 @@
 
   
   <meta property="og:site_name" content="Red Ackee Software">
-  <meta property="og:title" content="Red Ackee Software">
-  <meta property="og:description" content="Browser-friendly Vosklet build (recommended) This repository includes a small mock `Vosklet.browser.js` for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports. Where to get a browser build 1. Official sources - Check the Vosk project releases: https://github.com/alphacep/vosk-browser or...">
+  <meta property="og:title" content="Project Setup and Troubleshooting Summary | Red Ackee Software">
+  <meta property="og:description" content="# Project Setup and Troubleshooting Summary ## Actions Taken 1. **Configured GitHub Pages Remote Theme** - Verified `_config.yml` includes `remote_theme: &quot;redackee/beautiful-jekyll&quot;`. - Confirmed correct usage for GitHub Pages and Jekyll. 2. **Created Gemfile for Local Development** - Added a `Gemfile` with: ```ruby gem &apos;github-pages&apos;, group: :jekyll_plugins ``` - Noted that...">
 
   
   <meta property="og:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
@@ -94,8 +94,8 @@
 
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/preview-website/assets/wasm/README-browser/">
-  <link rel="canonical" href="/preview-website/assets/wasm/README-browser/">
+  <meta property="og:url" content="/preview-website/DOCUMENTS/SETUP_SUMMARY/">
+  <link rel="canonical" href="/preview-website/DOCUMENTS/SETUP_SUMMARY/">
   
 
   
@@ -104,8 +104,8 @@
   <meta name="twitter:site" content="@redackee">
   <meta name="twitter:creator" content="@redackee">
 
-  <meta property="twitter:title" content="Red Ackee Software">
-  <meta property="twitter:description" content="Browser-friendly Vosklet build (recommended) This repository includes a small mock `Vosklet.browser.js` for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports. Where to get a browser build 1. Official sources - Check the Vosk project releases: https://github.com/alphacep/vosk-browser or...">
+  <meta property="twitter:title" content="Project Setup and Troubleshooting Summary | Red Ackee Software">
+  <meta property="twitter:description" content="# Project Setup and Troubleshooting Summary ## Actions Taken 1. **Configured GitHub Pages Remote Theme** - Verified `_config.yml` includes `remote_theme: &quot;redackee/beautiful-jekyll&quot;`. - Confirmed correct usage for GitHub Pages and Jekyll. 2. **Created Gemfile for Local Development** - Added a `Gemfile` with: ```ruby gem &apos;github-pages&apos;, group: :jekyll_plugins ``` - Noted that...">
 
   
   <meta name="twitter:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
@@ -233,6 +233,26 @@
 
 <div class="intro-header ">
   
+  <div class="header-overlay"></div>
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>
+            <span class="site-title">
+              <span class="red-word">Red</span>
+              <span class="ackee-word">Ackee</span>
+              <span class="software-word">Software</span>
+            </span>
+          </h1>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
 </div>
 
@@ -244,48 +264,137 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <p>Browser-friendly Vosklet build (recommended)</p>
+      <h1 id="project-setup-and-troubleshooting-summary">Project Setup and Troubleshooting Summary</h1>
 
-<p>This repository includes a small mock <code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code> for local development. For real in-browser speech-to-text you should use a browser-friendly Vosklet build compiled without WASI and with proper browser imports.</p>
-
-<p>Where to get a browser build</p>
+<h2 id="actions-taken">Actions Taken</h2>
 
 <ol>
   <li>
-    <p>Official sources</p>
+    <p><strong>Configured GitHub Pages Remote Theme</strong></p>
 
     <ul>
-      <li>Check the Vosk project releases: https://github.com/alphacep/vosk-browser or https://alphacephei.com/vosk</li>
-      <li>Look for a build named similar to <code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code> + <code class="language-plaintext highlighter-rouge">Vosklet.wasm</code> or instructions for “WebAssembly (browser)” builds.</li>
+      <li>Verified <code class="language-plaintext highlighter-rouge">_config.yml</code> includes <code class="language-plaintext highlighter-rouge">remote_theme: "redackee/beautiful-jekyll"</code>.</li>
+      <li>Confirmed correct usage for GitHub Pages and Jekyll.</li>
     </ul>
   </li>
   <li>
-    <p>Build it yourself with Emscripten</p>
+    <p><strong>Created Gemfile for Local Development</strong></p>
 
     <ul>
-      <li>Clone the Vosklet sources and compile with emscripten using emcc and flags to target the browser (disable WASI, do not require imported memory, etc.).</li>
-      <li>Example (high-level):
-        <ul>
-          <li>emcc -O3 -s MODULARIZE=1 -s ‘EXPORT_NAME=”loadVosklet”’ -s NO_EXIT_RUNTIME=1 -s ALLOW_MEMORY_GROWTH=1 -o Vosklet.browser.js <sources></sources></li>
-          <li>Ensure the generated JS exposes a function <code class="language-plaintext highlighter-rouge">loadVosklet</code> that returns a Promise resolving with the module.</li>
-        </ul>
+      <li>Added a <code class="language-plaintext highlighter-rouge">Gemfile</code> with:
+        <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'github-pages'</span><span class="p">,</span> <span class="ss">group: :jekyll_plugins</span>
+</code></pre></div>        </div>
       </li>
+      <li>Noted that <code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> is already included via <code class="language-plaintext highlighter-rouge">github-pages</code>.</li>
     </ul>
   </li>
   <li>
-    <p>Place files</p>
+    <p><strong>Attempted Local Gem Installation</strong></p>
+
     <ul>
-      <li>Put the final <code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code> and <code class="language-plaintext highlighter-rouge">Vosklet.wasm</code> under <code class="language-plaintext highlighter-rouge">assets/wasm/</code> in this site.</li>
+      <li>Ran <code class="language-plaintext highlighter-rouge">bundle install --path vendor/bundle</code> to install gems locally.</li>
+      <li>Encountered permission errors and native extension build errors (e.g., <code class="language-plaintext highlighter-rouge">commonmarker</code>).</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Troubleshooting Steps</strong></p>
+
+    <ul>
+      <li>Advised to remove and retry <code class="language-plaintext highlighter-rouge">vendor/bundle</code> if permissions are an issue.</li>
+      <li>Recommended installing Xcode Command Line Tools with <code class="language-plaintext highlighter-rouge">xcode-select --install</code> for native gem builds.</li>
+      <li>Provided instructions for installing Ruby locally using Homebrew, rbenv, or rvm to avoid system Ruby permission issues.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Documentation Provided</strong></p>
+
+    <ul>
+      <li>Linked to the official <a href="https://github.com/benbalter/jekyll-remote-theme"><code class="language-plaintext highlighter-rouge">jekyll-remote-theme</code> documentation</a>.</li>
+      <li>Summarized installation and configuration steps for remote themes and local development.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Ruby Version Management</strong></p>
+
+    <ul>
+      <li>Installed <code class="language-plaintext highlighter-rouge">rbenv</code> locally using Homebrew.</li>
+      <li>Set up Ruby version 3.4.5 for local development.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Previewing the Website Locally</strong></p>
+    <ul>
+      <li>To preview your site locally with the correct plugins and theme, run:
+        <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div>        </div>
+      </li>
+      <li>Then open http://localhost:4000 in your browser.</li>
     </ul>
   </li>
 </ol>
 
-<p>Notes</p>
+<hr />
+
+<h2 id="major-customizations-and-ui-changes-since-last-update">Major Customizations and UI Changes (since last update)</h2>
 
 <ul>
-  <li>The mock provided here (<code class="language-plaintext highlighter-rouge">Vosklet.browser.js</code>) is only for functional UI testing; it does not perform real speech recognition.</li>
-  <li>If you want, I can try to locate a prebuilt browser bundle or help build one from sources using emscripten in a separate environment.</li>
+  <li>
+    <p><strong>Site Title Branding:</strong></p>
+
+    <ul>
+      <li>Multi-color “Red Ackee Software” branding applied everywhere the site title appears (navbar, header, page title, and optionally footer).</li>
+      <li>Custom CSS for <code class="language-plaintext highlighter-rouge">.red-word</code> (red), <code class="language-plaintext highlighter-rouge">.ackee-word</code> (black), and <code class="language-plaintext highlighter-rouge">.software-word</code> (gold with black text stroke).</li>
+      <li>Overrode theme includes and layouts to inject custom HTML for the site title.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Banner Image:</strong></p>
+
+    <ul>
+      <li>Homepage banner image updated from <code class="language-plaintext highlighter-rouge">old_sugar_factory.jpg</code> to <code class="language-plaintext highlighter-rouge">banner-redackee-1536x1024.png</code>.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Navigation:</strong></p>
+
+    <ul>
+      <li>Added links to ChatGPT, Google Gemini, and Microsoft Copilot under the Resources menu in the navbar.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Favicon:</strong></p>
+
+    <ul>
+      <li>Switched favicon from PNG to ICO format in <code class="language-plaintext highlighter-rouge">_config.yml</code>.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Header and Page Title:</strong></p>
+
+    <ul>
+      <li>Removed text shadow from all major headings for a cleaner look.</li>
+      <li>Ensured only the custom multi-color title is shown in the banner/header area.</li>
+      <li>CSS rules added to hide default page headings if a custom title is present.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Footer:</strong></p>
+
+    <ul>
+      <li>Footer reverted to show only copyright and author.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>General:</strong></p>
+    <ul>
+      <li>Various troubleshooting and improvements for local development, LiveReload, and browser cache issues.</li>
+    </ul>
+  </li>
 </ul>
+
+<hr />
+
+<p>For further troubleshooting, ensure you are using a user-managed Ruby and have the necessary build tools installed. All configuration and setup steps are now documented in this summary.</p>
 
 
       
