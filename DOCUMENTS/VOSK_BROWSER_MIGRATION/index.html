@@ -18,7 +18,7 @@
   <meta name="author" content="Nkosi Dilworth">
   
 
-  <meta name="description" content="# Vosk-Browser Migration Summary ## Overview Successfully migrated from Vosklet to **vosk-browser** (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature. ## Changes Made ### 1. **Updated `assets/js/voice-feedback.js`** #### Replaced Vosklet API with vosk-browser API: - Changed from `window.Vosklet` to `window.Vosk.createModel()` - Updated model loading to use async `createModel()`...">
+  <meta name="description" content="# Vosk-Browser Migration Summary ## Overview The voice feedback feature now uses local `vosk-browser` assets and a browser-first controller instead of the older Vosklet path. The current shipped runtime is `VF 2026-03-25-a`. This repo is a static Jekyll site, so the feature is intentionally scoped to in-browser capture and transcription....">
 
   
 
@@ -86,7 +86,7 @@
   
   <meta property="og:site_name" content="Red Ackee Software">
   <meta property="og:title" content="Vosk-Browser Migration Summary | Red Ackee Software">
-  <meta property="og:description" content="# Vosk-Browser Migration Summary ## Overview Successfully migrated from Vosklet to **vosk-browser** (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature. ## Changes Made ### 1. **Updated `assets/js/voice-feedback.js`** #### Replaced Vosklet API with vosk-browser API: - Changed from `window.Vosklet` to `window.Vosk.createModel()` - Updated model loading to use async `createModel()`...">
+  <meta property="og:description" content="# Vosk-Browser Migration Summary ## Overview The voice feedback feature now uses local `vosk-browser` assets and a browser-first controller instead of the older Vosklet path. The current shipped runtime is `VF 2026-03-25-a`. This repo is a static Jekyll site, so the feature is intentionally scoped to in-browser capture and transcription....">
 
   
   <meta property="og:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
@@ -105,7 +105,7 @@
   <meta name="twitter:creator" content="@redackee">
 
   <meta property="twitter:title" content="Vosk-Browser Migration Summary | Red Ackee Software">
-  <meta property="twitter:description" content="# Vosk-Browser Migration Summary ## Overview Successfully migrated from Vosklet to **vosk-browser** (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature. ## Changes Made ### 1. **Updated `assets/js/voice-feedback.js`** #### Replaced Vosklet API with vosk-browser API: - Changed from `window.Vosklet` to `window.Vosk.createModel()` - Updated model loading to use async `createModel()`...">
+  <meta property="twitter:description" content="# Vosk-Browser Migration Summary ## Overview The voice feedback feature now uses local `vosk-browser` assets and a browser-first controller instead of the older Vosklet path. The current shipped runtime is `VF 2026-03-25-a`. This repo is a static Jekyll site, so the feature is intentionally scoped to in-browser capture and transcription....">
 
   
   <meta name="twitter:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
@@ -268,230 +268,126 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>Successfully migrated from Vosklet to <strong>vosk-browser</strong> (https://github.com/redackee/vosk-browser) for offline speech-to-text transcription in the voice feedback feature.</p>
+<p>The voice feedback feature now uses local <code class="language-plaintext highlighter-rouge">vosk-browser</code> assets and a browser-first controller instead of the older Vosklet path. The current shipped runtime is <code class="language-plaintext highlighter-rouge">VF 2026-03-25-a</code>.</p>
 
-<h2 id="changes-made">Changes Made</h2>
+<p>This repo is a static Jekyll site, so the feature is intentionally scoped to in-browser capture and transcription. It does not send transcripts to a server or persist feedback files.</p>
 
-<h3 id="1-updated-assetsjsvoice-feedbackjs">1. <strong>Updated <code class="language-plaintext highlighter-rouge">assets/js/voice-feedback.js</code></strong></h3>
+<h2 id="current-runtime-shape">Current Runtime Shape</h2>
 
-<h4 id="replaced-vosklet-api-with-vosk-browser-api">Replaced Vosklet API with vosk-browser API:</h4>
+<h3 id="scripts-loaded-by-the-site">Scripts loaded by the site</h3>
+
+<p>The footer loads the voice stack in this order:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/voice-feedback-core.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/wasm/vosk.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/voice-feedback.js</code></li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">voice-feedback-core.js</code> contains pure helper logic that is covered by unit tests. <code class="language-plaintext highlighter-rouge">voice-feedback.js</code> owns the browser UI, prompt loading, recording flow, modal state, and Vosk/Web Speech orchestration.</p>
+
+<h3 id="speech-flow">Speech flow</h3>
+
+<ol>
+  <li>The page loads and starts preparing the local Vosk model archive.</li>
+  <li>If browser speech recognition is available, the controller can use it.</li>
+  <li>If browser speech recognition is not available, the controller can fall back to local Vosk processing.</li>
+  <li>The modal shows transcript or failure information in-browser.</li>
+</ol>
+
+<h3 id="privacy-model">Privacy model</h3>
 
 <ul>
-  <li>Changed from <code class="language-plaintext highlighter-rouge">window.Vosklet</code> to <code class="language-plaintext highlighter-rouge">window.Vosk.createModel()</code></li>
-  <li>Updated model loading to use async <code class="language-plaintext highlighter-rouge">createModel()</code> function</li>
-  <li>Changed recognizer initialization to use <code class="language-plaintext highlighter-rouge">model.KaldiRecognizer(sampleRate)</code></li>
-  <li>Added event listeners for <code class="language-plaintext highlighter-rouge">"result"</code> and <code class="language-plaintext highlighter-rouge">"partialresult"</code> events</li>
-  <li>Updated transcription function to use <code class="language-plaintext highlighter-rouge">acceptWaveform()</code> and <code class="language-plaintext highlighter-rouge">retrieveFinalResult()</code> methods</li>
+  <li>Audio is handled in the browser session.</li>
+  <li>The static site does not record IP addresses.</li>
+  <li>The static site does not store feedback files.</li>
+  <li>The modal explicitly tells the user that feedback is not being sent to a backend.</li>
 </ul>
 
-<h4 id="key-api-changes">Key API Changes:</h4>
+<h2 id="what-changed">What Changed</h2>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// OLD (Vosklet):</span>
-<span class="nx">voskletRecognizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Vosklet</span><span class="p">.</span><span class="nx">Recognizer</span><span class="p">({</span><span class="nx">modelPath</span><span class="p">});</span>
-<span class="k">await</span> <span class="nx">voskletRecognizer</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+<h3 id="vosklet-is-no-longer-the-active-path">Vosklet is no longer the active path</h3>
 
-<span class="c1">// NEW (vosk-browser):</span>
-<span class="nx">voskModel</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">window</span><span class="p">.</span><span class="nx">Vosk</span><span class="p">.</span><span class="nx">createModel</span><span class="p">(</span><span class="nx">modelUrl</span><span class="p">);</span>
-<span class="nx">voskRecognizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">voskModel</span><span class="p">.</span><span class="nx">KaldiRecognizer</span><span class="p">(</span><span class="nx">sampleRate</span><span class="p">);</span>
-<span class="nx">voskRecognizer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
-</code></pre></div></div>
+<p>The old Vosklet-era assets and loader were removed from the source tree. The active runtime uses <code class="language-plaintext highlighter-rouge">window.Vosk.createModel()</code> from the local <code class="language-plaintext highlighter-rouge">vosk.js</code> asset.</p>
 
-<h3 id="2-updated-_includesfooterhtml">2. <strong>Updated <code class="language-plaintext highlighter-rouge">_includes/footer.html</code></strong></h3>
+<h3 id="local-asset-loading-replaced-cdn-assumptions">Local asset loading replaced CDN assumptions</h3>
 
-<p>Added vosk-browser library from <strong>local assets</strong> (not CDN):</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script
-  </span><span class="na">type=</span><span class="s">"application/javascript"</span>
-  <span class="na">src=</span><span class="s">"/preview-website/assets/wasm/vosk.js"</span>
-<span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div></div>
-
-<p>This loads before the voice-feedback.js script so the <code class="language-plaintext highlighter-rouge">window.Vosk</code> object is available.</p>
-
-<p><strong>File:</strong> <code class="language-plaintext highlighter-rouge">/assets/wasm/vosk.js</code> (5.5 MB) - Downloaded from npm package vosk-browser@0.0.8</p>
-
-<h3 id="3-created-model-archive">3. <strong>Created Model Archive</strong></h3>
-
-<p>Created <code class="language-plaintext highlighter-rouge">vosk-model-small-en-us-0.15.tar.gz</code> (39 MB) from the existing model directory:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>czf vosk-model-small-en-us-0.15.tar.gz vosk-model-small-en-us-0.15/
-</code></pre></div></div>
-
-<p><strong>Location:</strong> <code class="language-plaintext highlighter-rouge">/assets/wasm/vosk-model-small-en-us-0.15.tar.gz</code></p>
-
-<p>vosk-browser requires models to be in <code class="language-plaintext highlighter-rouge">.tar.gz</code> format for proper loading and extraction.</p>
-
-<h2 id="files-modified">Files Modified</h2>
-
-<ol>
-  <li><strong><code class="language-plaintext highlighter-rouge">/assets/js/voice-feedback.js</code></strong> - Updated voice recognition logic</li>
-  <li><strong><code class="language-plaintext highlighter-rouge">/_includes/footer.html</code></strong> - Added vosk-browser CDN script</li>
-  <li><strong><code class="language-plaintext highlighter-rouge">/assets/wasm/</code></strong> - Created tar.gz model archive</li>
-</ol>
-
-<h2 id="files-no-longer-needed-can-be-removed">Files No Longer Needed (Can be removed)</h2>
+<p>The site loads <code class="language-plaintext highlighter-rouge">vosk.js</code> from local assets, not from a CDN. The model archive is also served locally:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/Vosklet.js</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/Vosklet.wasm</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/Vosklet.browser.js</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/load-vosket.js</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/assets/wasm/README-browser.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/wasm/vosk.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/wasm/vosk-model-small-en-us-0.15.tar.gz</code></li>
 </ul>
 
-<p>These were part of the old Vosklet implementation and are no longer used.</p>
+<h3 id="ui-and-state-handling-were-expanded">UI and state handling were expanded</h3>
 
-<h2 id="how-it-works-now">How It Works Now</h2>
-
-<h3 id="architecture">Architecture:</h3>
-
-<ol>
-  <li>
-    <p><strong>Model Loading:</strong></p>
-
-    <ul>
-      <li>vosk-browser library loaded from CDN (jsdelivr)</li>
-      <li>Model tar.gz downloaded and extracted by vosk-browser worker</li>
-      <li>Model stored in browser IndexedDB for persistence</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Transcription Flow:</strong></p>
-
-    <ul>
-      <li><strong>Primary:</strong> Web Speech Recognition API (live, works in Chrome/Edge/Safari)</li>
-      <li><strong>Fallback:</strong> MediaRecorder → AudioBlob → vosk-browser offline transcription</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Event Flow:</strong></p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User clicks avatar
-→ Request mic permission
-→ Start recording (MediaRecorder)
-→ User speaks
-→ Stop recording
-→ Convert to AudioBuffer
-→ Feed to vosk-browser recognizer.acceptWaveform()
-→ Retrieve final result
-→ Display in modal
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<h2 id="testing">Testing</h2>
-
-<h3 id="to-test-the-voice-feature">To test the voice feature:</h3>
-
-<ol>
-  <li><strong>Open site:</strong> http://127.0.0.1:4000/redackee.github.io/</li>
-  <li><strong>Open DevTools Console</strong> (F12 or Cmd+Option+I)</li>
-  <li>
-    <p><strong>Look for console messages:</strong></p>
-
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">[voice-feedback] loaded version 2025-10-05-test</code></li>
-      <li><code class="language-plaintext highlighter-rouge">[vosk-browser] Loading model from: ...</code></li>
-      <li><code class="language-plaintext highlighter-rouge">[vosk-browser] Model loaded and ready</code></li>
-    </ul>
-  </li>
-  <li><strong>Test voice input:</strong>
-    <ul>
-      <li>Hover over avatar in footer → hear prompt</li>
-      <li>Click avatar → grant mic permission</li>
-      <li>Speak clearly</li>
-      <li>See transcription in modal</li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="expected-console-output">Expected Console Output:</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[voice-feedback] loaded version 2025-10-05-test
-[vosk-browser] Loading model from: /redackee.github.io/assets/wasm/vosk-model-small-en-us-0.15.tar.gz
-[vosk-browser] Model loaded and ready
-</code></pre></div></div>
-
-<h2 id="benefits-of-vosk-browser">Benefits of vosk-browser</h2>
-
-<p>✅ <strong>Actively maintained</strong> - Official browser build from Vosk team<br />
-✅ <strong>Better API</strong> - Event-driven, cleaner interface<br />
-✅ <strong>Web Worker</strong> - Runs in background, doesn’t block UI<br />
-✅ <strong>Persistent storage</strong> - Model cached in IndexedDB<br />
-✅ <strong>CDN available</strong> - Easy to load from jsdelivr<br />
-✅ <strong>TypeScript support</strong> - Better developer experience<br />
-✅ <strong>Documentation</strong> - Well-documented with examples</p>
-
-<h2 id="performance">Performance</h2>
+<p>The current implementation includes:</p>
 
 <ul>
-  <li><strong>Model size:</strong> 39 MB compressed (68 MB uncompressed)</li>
-  <li><strong>First load:</strong> ~5-10 seconds (downloads + extracts model)</li>
-  <li><strong>Subsequent loads:</strong> Instant (cached in IndexedDB)</li>
-  <li><strong>Transcription:</strong> Real-time (processes as audio is fed)</li>
+  <li>A visible version badge</li>
+  <li>Status and hint text near the avatar</li>
+  <li>A modal for transcript, privacy, and conduct messaging</li>
+  <li>Clear permission-denied and unavailable-browser states</li>
 </ul>
 
-<h2 id="browser-compatibility">Browser Compatibility</h2>
+<h2 id="files-relevant-to-the-migration">Files Relevant To The Migration</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Chrome</th>
-      <th>Firefox</th>
-      <th>Safari</th>
-      <th>Edge</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Web Speech API</td>
-      <td>✅</td>
-      <td>❌</td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>vosk-browser</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td>MediaRecorder</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/voice-feedback-core.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/voice-feedback.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/footer.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/wasm/vosk.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assets/wasm/vosk-model-small-en-us-0.15.tar.gz</code></li>
+  <li><code class="language-plaintext highlighter-rouge">tests/voice-feedback-core.test.js</code></li>
+</ul>
 
-<p><strong>Recommendation:</strong> vosk-browser provides offline capability for all browsers, while Web Speech API provides faster results where available.</p>
+<h2 id="validation-notes">Validation Notes</h2>
 
-<h2 id="next-steps-optional">Next Steps (Optional)</h2>
+<h3 id="verified-in-this-repo">Verified in this repo</h3>
 
-<ol>
-  <li><strong>Remove old Vosklet files</strong> to clean up the repository</li>
-  <li><strong>Add loading indicator</strong> while model downloads (first visit)</li>
-  <li><strong>Add language selection</strong> if multi-language support is needed</li>
-  <li><strong>Optimize model size</strong> - Consider using a smaller model for faster loading</li>
-  <li><strong>Add tests</strong> - Automated testing of voice features</li>
-</ol>
+<ul>
+  <li>The local Jekyll site serves successfully.</li>
+  <li>The integrated browser can inspect the page and widget state.</li>
+  <li>The voice widget advances from <code class="language-plaintext highlighter-rouge">loading</code> to <code class="language-plaintext highlighter-rouge">ready</code>.</li>
+  <li>Hover updates the hint text.</li>
+  <li>Activation in the integrated browser correctly surfaces the permission-denied modal because the integrated browser blocks microphone access.</li>
+  <li>Manual happy-path testing in Chrome succeeded with microphone access enabled.</li>
+  <li>Transcript quality is sensitive to environmental noise such as wind, so occasional missing words are expected in poor recording conditions.</li>
+  <li>A Chrome retest after removing spoken prompt overlap and adding browser audio constraints showed better recognition in the same general conditions.</li>
+  <li>Unit tests pass for helper logic.</li>
+</ul>
+
+<h3 id="important-browser-limitation">Important browser limitation</h3>
+
+<p>VS Code’s integrated browser is useful for UI inspection, but it blocks microphone permission requests. That means:</p>
+
+<ul>
+  <li>It is suitable for layout and denied-permission smoke tests.</li>
+  <li>It is not sufficient to validate the happy-path recording flow.</li>
+</ul>
+
+<p>Use a normal browser such as Chrome, Edge, or Safari to verify actual microphone capture and transcript generation when you need to re-check real speech input quality.</p>
+
+<h2 id="remaining-cleanup">Remaining Cleanup</h2>
+
+<ul>
+  <li>Decide whether to keep the current small US English model or replace it with a newer browser-friendly model after separate evaluation.</li>
+  <li>Keep browser-first docs aligned with the static-site constraint.</li>
+</ul>
 
 <h2 id="resources">Resources</h2>
 
 <ul>
-  <li><strong>vosk-browser GitHub:</strong> https://github.com/redackee/vosk-browser</li>
-  <li><strong>vosk-browser Demo:</strong> https://ccoreilly.github.io/vosk-browser/</li>
-  <li><strong>Vosk Models:</strong> https://alphacephei.com/vosk/models</li>
-  <li><strong>Web Speech API:</strong> https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API</li>
+  <li><code class="language-plaintext highlighter-rouge">DOCUMENTS/VOICE_TESTING_GUIDE.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">DOCUMENTS/LOCAL_VOSK_SETUP.md</code></li>
+  <li>https://alphacephei.com/vosk/models</li>
+  <li>https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API</li>
 </ul>
 
 <hr />
 
-<p><strong>Migration completed:</strong> October 8, 2025<br />
-<strong>Version:</strong> VF 2025-10-05-test</p>
+<p><strong>Migration checkpoint updated:</strong> March 25, 2026<br />
+<strong>Runtime version:</strong> VF 2026-03-25-a</p>
 
 
       
@@ -572,6 +468,7 @@
       // Expose the runtime baseurl to client-side scripts
       window.siteBaseurl = "/preview-website";
     </script>
+    <script src="/preview-website/assets/js/voice-feedback-core.js"></script>
     <!-- vosk-browser library (local) -->
     <script type="application/javascript" src="/preview-website/assets/wasm/vosk.js"></script>
     <script src="/preview-website/assets/js/voice-feedback.js"></script>

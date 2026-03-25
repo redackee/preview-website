@@ -39,14 +39,6 @@
 "category" : "page", 
 "url"      : "/preview-website/DOCUMENTS/VOSK_BROWSER_MIGRATION/", 
 "date"     : "January 1, 1970" 
-}, 
- 
-{ 
-"title"    : "", 
-"desc"     : "", 
-"category" : "page", 
-"url"      : "/preview-website/assets/wasm/README-browser/", 
-"date"     : "January 1, 1970" 
 } 
  
 ]

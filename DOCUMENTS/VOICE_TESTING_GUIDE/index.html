@@ -18,7 +18,7 @@
   <meta name="author" content="Nkosi Dilworth">
   
 
-  <meta name="description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser --- ## Test 1: Visual Elements ### Expected Elements: 1. **Version Badge** (bottom-right corner)...">
+  <meta name="description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ **Unit tests:** `npm test` --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser ✅ `npm test` passes for extracted voice helpers --- ##...">
 
   
 
@@ -86,7 +86,7 @@
   
   <meta property="og:site_name" content="Red Ackee Software">
   <meta property="og:title" content="Voice Features Testing Guide | Red Ackee Software">
-  <meta property="og:description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser --- ## Test 1: Visual Elements ### Expected Elements: 1. **Version Badge** (bottom-right corner)...">
+  <meta property="og:description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ **Unit tests:** `npm test` --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser ✅ `npm test` passes for extracted voice helpers --- ##...">
 
   
   <meta property="og:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
@@ -105,7 +105,7 @@
   <meta name="twitter:creator" content="@redackee">
 
   <meta property="twitter:title" content="Voice Features Testing Guide | Red Ackee Software">
-  <meta property="twitter:description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser --- ## Test 1: Visual Elements ### Expected Elements: 1. **Version Badge** (bottom-right corner)...">
+  <meta property="twitter:description" content="# Voice Features Testing Guide ## 🎤 Testing the Voice Feedback System **Site URL:** http://127.0.0.1:4000/redackee.github.io/ **Unit tests:** `npm test` --- ## Pre-Test Checklist ✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/ ✅ Browser has microphone permission capability ✅ Site loaded in browser ✅ `npm test` passes for extracted voice helpers --- ##...">
 
   
   <meta name="twitter:image" content="/preview-website/assets/img/avatar-redackee-200x200.png">
@@ -270,13 +270,16 @@
 
 <p><strong>Site URL:</strong> http://127.0.0.1:4000/redackee.github.io/</p>
 
+<p><strong>Unit tests:</strong> <code class="language-plaintext highlighter-rouge">npm test</code></p>
+
 <hr />
 
 <h2 id="pre-test-checklist">Pre-Test Checklist</h2>
 
 <p>✅ Jekyll server running at http://127.0.0.1:4000/redackee.github.io/<br />
 ✅ Browser has microphone permission capability<br />
-✅ Site loaded in browser</p>
+✅ Site loaded in browser
+✅ <code class="language-plaintext highlighter-rouge">npm test</code> passes for extracted voice helpers</p>
 
 <hr />
 
@@ -285,21 +288,27 @@
 <h3 id="expected-elements">Expected Elements:</h3>
 
 <ol>
-  <li>
-    <p><strong>Version Badge</strong> (bottom-right corner)</p>
+  <li><strong>Version Badge</strong> (bottom-right corner)</li>
+</ol>
 
+<ul>
+  <li>Should display: <code class="language-plaintext highlighter-rouge">VF 2026-03-25-a</code></li>
+  <li>Location: Fixed position, bottom-right</li>
+  <li>Style: Dark background, white text</li>
+</ul>
+
+<ol>
+  <li><strong>Voice Avatar</strong> (footer / floating on large screens)
     <ul>
-      <li>Should display: <code class="language-plaintext highlighter-rouge">VF 2025-10-05-test</code></li>
-      <li>Location: Fixed position, bottom-right</li>
-      <li>Style: Dark background, white text</li>
+      <li>Should display: redackee avatar image
+       - Location: Footer on small screens, bottom-center floating control on larger screens
+       - Label: “Activate voice feedback. Press Enter or Space to record your feedback.”</li>
     </ul>
   </li>
-  <li>
-    <p><strong>Voice Avatar</strong> (in footer)</p>
+  <li><strong>Visible Hint Text</strong>
     <ul>
-      <li>Should display: redackee avatar image</li>
-      <li>Location: Footer, after author name</li>
-      <li>Tooltip: “Send voice feedback”</li>
+      <li>Should appear next to or below the avatar</li>
+      <li>Should change as the control moves through loading, ready, recording, and processing states</li>
     </ul>
   </li>
 </ol>
@@ -327,11 +336,9 @@
 <h3 id="expected-console-messages">Expected Console Messages:</h3>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// On page load:</span>
-<span class="p">[</span><span class="nx">voice</span><span class="o">-</span><span class="nx">feedback</span><span class="p">]</span> <span class="nx">loaded</span> <span class="nx">version</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="nx">test</span>
+<span class="p">[</span><span class="nx">voice</span><span class="o">-</span><span class="nx">feedback</span><span class="p">]</span> <span class="nx">loaded</span> <span class="nx">version</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="nx">a</span>
 
-<span class="c1">// vosk-browser library check:</span>
-<span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Library</span> <span class="nx">not</span> <span class="nx">loaded</span><span class="p">.</span> <span class="nx">Will</span> <span class="nx">use</span> <span class="nx">Web</span> <span class="nx">Speech</span> <span class="nx">API</span> <span class="nx">fallback</span><span class="p">.</span>
-<span class="c1">// OR if vosk loads successfully:</span>
+<span class="c1">// Vosk startup:</span>
 <span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Loading</span> <span class="nx">model</span> <span class="k">from</span><span class="p">:</span> <span class="o">/</span><span class="nx">redackee</span><span class="p">.</span><span class="nx">github</span><span class="p">.</span><span class="nx">io</span><span class="o">/</span><span class="nx">assets</span><span class="o">/</span><span class="nx">wasm</span><span class="o">/</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">model</span><span class="o">-</span><span class="nx">small</span><span class="o">-</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span><span class="o">-</span><span class="mf">0.15</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">gz</span>
 <span class="p">[</span><span class="nx">vosk</span><span class="o">-</span><span class="nx">browser</span><span class="p">]</span> <span class="nx">Model</span> <span class="nx">loaded</span> <span class="nx">and</span> <span class="nx">ready</span>
 </code></pre></div></div>
@@ -369,6 +376,16 @@ Site baseurl: /redackee.github.io
 Web Speech API: true (Chrome/Edge/Safari)
 </code></pre></div></div>
 
+<h3 id="unit-test-command">Unit Test Command:</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">test</span>
+</code></pre></div></div>
+
+<p>Expected result:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>✓ tests/voice-feedback-core.test.js
+</code></pre></div></div>
+
 <hr />
 
 <h2 id="test-3-hover-interaction">Test 3: Hover Interaction</h2>
@@ -384,8 +401,9 @@ Web Speech API: true (Chrome/Edge/Safari)
 
 <ul>
   <li>✅ Avatar should get <code class="language-plaintext highlighter-rouge">hover</code> CSS class</li>
-  <li>✅ Text-to-speech plays: “Welcome to Red Ackee software. Please tell us your idea or leave feedback…”</li>
-  <li>✅ Avatar may have visual hover effect (check CSS)</li>
+  <li>✅ Text-to-speech plays the action prompt from <code class="language-plaintext highlighter-rouge">feedback_prompts/action_prompt.txt</code></li>
+  <li>✅ Hint text updates to a ready-state message</li>
+  <li>✅ Avatar shows a visual hover/ready state</li>
 </ul>
 
 <h3 id="️-troubleshooting">⚠️ Troubleshooting:</h3>
@@ -403,7 +421,7 @@ Web Speech API: true (Chrome/Edge/Safari)
 <h3 id="steps-1">Steps:</h3>
 
 <ol>
-  <li>Click the avatar in the footer</li>
+  <li>Click the avatar</li>
   <li>Browser will request microphone permission → <strong>Allow it</strong></li>
   <li>Speak clearly: “This is a test”</li>
   <li>Click the avatar again to stop recording</li>
@@ -413,17 +431,27 @@ Web Speech API: true (Chrome/Edge/Safari)
 
 <ul>
   <li>✅ Browser asks for microphone permission</li>
-  <li>✅ Avatar gets <code class="language-plaintext highlighter-rouge">active</code> CSS class (visual feedback)</li>
-  <li>✅ Text-to-speech plays: “Please tell us your feedback or ideas”</li>
+  <li>✅ Avatar switches to recording state and <code class="language-plaintext highlighter-rouge">aria-pressed="true"</code></li>
+  <li>✅ The request prompt text is shown when recording starts without competing with microphone capture</li>
   <li>✅ Recording indicator appears (check browser UI)</li>
-  <li>✅ After stopping, modal appears with transcribed text</li>
+  <li>✅ After stopping, modal appears with transcribed text plus privacy/conduct notes</li>
+</ul>
+
+<h3 id="real-world-accuracy-note">Real-World Accuracy Note:</h3>
+
+<ul>
+  <li>Wind, room echo, and background noise can reduce transcript completeness.</li>
+  <li>Minor dropped words during outdoor or noisy testing do not necessarily indicate a controller bug.</li>
+  <li>The site avoids speaking the request prompt during capture so the browser does not compete with its own microphone input.</li>
+  <li>A follow-up Chrome retest after this tuning showed better capture of the spoken phrase start.</li>
+  <li>Re-test indoors or closer to the microphone before treating missing words as a code defect.</li>
 </ul>
 
 <h3 id="console-messages">Console Messages:</h3>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">voice</span><span class="o">-</span><span class="nx">feedback</span><span class="p">]</span> <span class="nx">Starting</span> <span class="nx">recording</span><span class="p">...</span>
 <span class="c1">// If Web Speech API is used:</span>
-<span class="nx">SpeechRecognition</span> <span class="nx">started</span>
+<span class="p">[</span><span class="nx">voice</span><span class="o">-</span><span class="nx">feedback</span><span class="p">]</span> <span class="nx">Using</span> <span class="nx">browser</span> <span class="nx">speech</span> <span class="nx">recognition</span><span class="p">.</span>
 <span class="c1">// When you speak:</span>
 <span class="p">[</span><span class="nx">Web</span> <span class="nx">Speech</span> <span class="nx">API</span><span class="p">]</span> <span class="nx">Transcribed</span><span class="p">:</span> <span class="nx">This</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">test</span>
 </code></pre></div></div>
@@ -431,7 +459,8 @@ Web Speech API: true (Chrome/Edge/Safari)
 <h3 id="modal-content">Modal Content:</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Thank you for your feedback!
-Transcribed: This is a test
+We process your speech in the browser for this site experience.
+[Transcript appears here]
 [Close button]
 </code></pre></div></div>
 
@@ -463,6 +492,13 @@ Transcribed: This is a test
   <li>✅ Audio blob sent to vosk-browser</li>
   <li>✅ vosk-browser transcribes offline</li>
   <li>✅ Modal shows result</li>
+</ul>
+
+<h3 id="accuracy-note">Accuracy Note:</h3>
+
+<ul>
+  <li>Offline transcription quality also depends on mic quality and ambient noise.</li>
+  <li>Compare quiet-room results before changing models or recognition logic.</li>
 </ul>
 
 <h3 id="console-messages-1">Console Messages:</h3>
@@ -572,7 +608,12 @@ Transcribed: This is a test
     <tr>
       <td>Avatar visible</td>
       <td>✅</td>
-      <td>In footer</td>
+      <td>Footer or floating on desktop</td>
+    </tr>
+    <tr>
+      <td>Hint text visible</td>
+      <td>✅</td>
+      <td>Tracks current state</td>
     </tr>
     <tr>
       <td>Hover plays audio</td>
@@ -608,6 +649,11 @@ Transcribed: This is a test
       <td>Modal closes</td>
       <td>✅</td>
       <td>Close button works</td>
+    </tr>
+    <tr>
+      <td>Unit tests pass</td>
+      <td>✅</td>
+      <td><code class="language-plaintext highlighter-rouge">npm test</code></td>
     </tr>
   </tbody>
 </table>
@@ -775,7 +821,7 @@ Transcribed: This is a test
 <hr />
 
 <p><strong>Test Date:</strong> October 8, 2025<br />
-<strong>Version:</strong> VF 2025-10-05-test<br />
+<strong>Version:</strong> VF 2026-03-25-a<br />
 <strong>vosk-browser:</strong> 0.0.8 (local)</p>
 
 
@@ -857,6 +903,7 @@ Transcribed: This is a test
       // Expose the runtime baseurl to client-side scripts
       window.siteBaseurl = "/preview-website";
     </script>
+    <script src="/preview-website/assets/js/voice-feedback-core.js"></script>
     <!-- vosk-browser library (local) -->
     <script type="application/javascript" src="/preview-website/assets/wasm/vosk.js"></script>
     <script src="/preview-website/assets/js/voice-feedback.js"></script>
